@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh" class="lang-zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暑期项目 - HOOTO 花头精</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.6; 
+      color: #333; 
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      min-height: 100vh;
+    }
+    
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(45deg, #ff6b35 0%, #f7931e 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+    
+    .project-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+    }
+    
+    .next-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .next-letters {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .next-letter {
+      text-align: center;
+      padding: 1rem;
+      background: linear-gradient(45deg, #ff6b35 0%, #f7931e 100%);
+      color: white;
+      border-radius: 15px;
+      min-width: 120px;
+      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    .next-letter h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .next-letter p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .hero-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .hero-image {
+      text-align: center;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+    
+    .project-title {
+      font-size: 3rem;
+      background: linear-gradient(45deg, #ff6b35 0%, #f7931e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .project-content {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+    
+    .project-section {
+      margin-bottom: 3rem;
+    }
+    
+    .project-section h2 {
+      font-size: 2rem;
+      color: #ff6b35;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #ff6b35;
+      padding-bottom: 0.5rem;
+    }
+    
+    .project-section p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* Course Gallery Styles */
+    .course-gallery {
+      position: relative;
+      margin: 3rem 0;
+      overflow: hidden;
+    }
+    
+    .gallery-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 250px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .control-btn {
+      width: 50px;
+      height: 50px;
+      border: none;
+      background: linear-gradient(45deg, #ff6b35 0%, #f7931e 100%);
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    .control-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+    
+    .control-btn:active {
+      transform: scale(0.95);
+    }
+    
+    .lang-zh .lang-en, .lang-en .lang-zh { display: none; }
+    .lang-zh .lang-zh, .lang-en .lang-en { display: block; }
+    
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 3rem 1rem 1rem;
+      }
+      
+      .project-title {
+        font-size: 2rem;
+      }
+      
+      .project-content {
+        padding: 2rem 1rem;
+      }
+      
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .next-letters {
+        gap: 1rem;
+      }
+      
+      .next-letter {
+        min-width: 100px;
+        padding: 0.8rem;
+      }
+      
+      .next-letter h2 {
+        font-size: 1.5rem;
+      }
+      
+      .hero-images {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-item {
+        width: 250px;
+        height: 200px;
+      }
+      
+      .gallery-track {
+        gap: 0.5rem;
+        padding: 0.5rem;
+      }
+      
+      .control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="../hooto.html" class="back-btn">
+    <span class="lang-zh">← 返回首页</span>
+    <span class="lang-en">← Back to Home</span>
+  </a>
+
+  <div class="project-container">
+    <!-- N.E.X.T Header -->
+    <div class="next-header">
+      <div class="next-letters">
+        <div class="next-letter">
+          <h2>N</h2>
+          <p><span class="lang-zh">叙事</span><span class="lang-en">Narrative</span></p>
+        </div>
+        <div class="next-letter">
+          <h2>E</h2>
+          <p><span class="lang-zh">表达</span><span class="lang-en">Expression</span></p>
+        </div>
+        <div class="next-letter">
+          <h2>X</h2>
+          <p><span class="lang-zh">探索</span><span class="lang-en">Exploration</span></p>
+        </div>
+        <div class="next-letter">
+          <h2>T</h2>
+          <p><span class="lang-zh">思考</span><span class="lang-en">Thinking</span></p>
+        </div>
+      </div>
+      
+      <!-- Hero Images -->
+      <div class="hero-images">
+        <div class="hero-image">
+          <img src="../sub2/开/WechatIMG1664.jpg" alt="N.E.X.T Workshop Image 1">
+        </div>
+        <div class="hero-image">
+          <img src="../sub2/开/WechatIMG1589.jpg" alt="N.E.X.T Workshop Image 2">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <!-- N.E.X.T Workshop Introduction -->
+      <div class="project-section">
+        <h1 class="project-title" style="margin-bottom: 2rem;">
+          <span class="lang-zh">N.E.X.T工作坊</span>
+          <span class="lang-en">N.E.X.T Workshop</span>
+        </h1>
+        
+        <p style="font-size: 1.2rem; line-height: 1.8; text-align: center; color: #666; margin-bottom: 3rem;">
+          <span class="lang-zh">为期七天的为12-15岁青少年设计的跨学科综合能力提升课程，涵盖艺术、工程、经济等领域，通过创新的认知训练与实践创作，帮助学生拓展思维边界。帮助他们拥有广阔的视野和多元的能力。</span>
+          <span class="lang-en">A seven-day cross-disciplinary comprehensive ability enhancement course designed for teenagers aged 12-15, covering art, engineering, economics and other fields. Through innovative cognitive training and practical creation, it helps students expand their thinking boundaries and develop broad perspectives and diverse abilities.</span>
+        </p>
+      </div>
+
+      <!-- Course Experience Section -->
+      <div class="project-section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">
+          <span class="lang-zh">跨学科课程体验</span>
+          <span class="lang-en">Cross-disciplinary Course Experience</span>
+        </h2>
+        
+        <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; color: #666; margin-bottom: 3rem;">
+          <span class="lang-zh">在四天的课程里，孩子们在课堂上学习着创造着，全都成为了小小艺术家。我们也看到了他们眼中闪耀的好奇，手中绽放的创意，和脸上纯真的笑容。孩子们也通过艺术去感知了自己和身边的世界。</span>
+          <span class="lang-en">During the four days of courses, children learned and created in the classroom, all becoming little artists. We also saw the curiosity shining in their eyes, the creativity blooming in their hands, and the pure smiles on their faces. Children also perceived themselves and the world around them through art.</span>
+        </p>
+
+        <!-- Rolling Gallery -->
+        <div class="course-gallery">
+          <div class="gallery-container">
+            <div class="gallery-track">
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1068.jpg" alt="Course Experience 1">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG955.jpg" alt="Course Experience 2">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1034.jpg" alt="Course Experience 3">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG950.jpg" alt="Course Experience 4">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1544.jpg" alt="Course Experience 5">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1518.jpg" alt="Course Experience 6">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1513.jpg" alt="Course Experience 7">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1512.jpg" alt="Course Experience 8">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1266.jpg" alt="Course Experience 9">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG1045.jpg" alt="Course Experience 10">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/课程/WechatIMG966.jpg" alt="Course Experience 11">
+              </div>
+            </div>
+          </div>
+          
+          <div class="gallery-controls">
+            <button class="control-btn prev-btn" onclick="scrollGallery('left')">
+              <span>‹</span>
+            </button>
+            <button class="control-btn next-btn" onclick="scrollGallery('right')">
+              <span>›</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exhibition Section -->
+      <div class="project-section">
+        <h1 class="project-title" style="margin-bottom: 2rem;">
+          <span class="lang-zh">我：展</span>
+          <span class="lang-en">Me: Exhibition</span>
+        </h1>
+        
+        <p style="font-size: 1.2rem; line-height: 1.8; text-align: center; color: #666; margin-bottom: 2rem;">
+          <span class="lang-zh">导师们带领小学员们在两天的努力下完成了展览的策划和搭建。所有的作品都是学员们在四天的课程中所创作的。经过大家的努力打磨，艺术展成功开幕。这既是艺术成果的展示，更是成长足迹的见证。</span>
+          <span class="lang-en">Under the guidance of mentors, young students completed the planning and construction of the exhibition through two days of hard work. All the works were created by students during the four-day course. Through everyone's efforts and refinement, the art exhibition successfully opened. This is not only a display of artistic achievements, but also a witness to the footprints of growth.</span>
+        </p>
+        
+        <h2 style="text-align: center; margin-bottom: 2rem;">
+          <span class="lang-zh">展览现场</span>
+          <span class="lang-en">Exhibition Scene</span>
+        </h2>
+        
+        <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; color: #666; margin-bottom: 3rem;">
+          <span class="lang-zh">经过精心策划和布置，展览现场展现了学员们丰富的创意和独特的艺术视角。每一件作品都承载着孩子们的梦想和努力。</span>
+          <span class="lang-en">After careful planning and arrangement, the exhibition scene showcases the rich creativity and unique artistic perspectives of the students. Each work carries the dreams and efforts of the children.</span>
+        </p>
+
+        <!-- Exhibition Gallery -->
+        <div class="course-gallery">
+          <div class="gallery-container">
+            <div class="gallery-track exhibition-track">
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG2079.jpg" alt="Exhibition 1">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1724.jpg" alt="Exhibition 2">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1715.jpg" alt="Exhibition 3">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1690.jpg" alt="Exhibition 4">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1673.jpg" alt="Exhibition 5">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1643.jpg" alt="Exhibition 6">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1641.jpg" alt="Exhibition 7">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1637.jpg" alt="Exhibition 8">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1615.jpg" alt="Exhibition 9">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1610.jpg" alt="Exhibition 10">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1608.jpg" alt="Exhibition 11">
+              </div>
+              <div class="gallery-item">
+                <img src="../sub2/展/WechatIMG1609.jpg" alt="Exhibition 12">
+              </div>
+            </div>
+          </div>
+          
+          <div class="gallery-controls">
+            <button class="control-btn prev-btn" onclick="scrollExhibitionGallery('left')">
+              <span>‹</span>
+            </button>
+            <button class="control-btn next-btn" onclick="scrollExhibitionGallery('right')">
+              <span>›</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Language toggle functionality
+    function toggleLanguage() {
+      const html = document.documentElement;
+      const currentLang = html.classList.contains('lang-zh') ? 'zh' : 'en';
+      const newLang = currentLang === 'zh' ? 'en' : 'zh';
+      
+      html.classList.remove('lang-zh', 'lang-en');
+      html.classList.add('lang-' + newLang);
+      html.lang = newLang;
+    }
+
+    // Check URL parameters for language preference
+    function checkLanguageFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang');
+      if (lang === 'en') {
+        document.documentElement.classList.remove('lang-zh');
+        document.documentElement.classList.add('lang-en');
+        document.documentElement.lang = 'en';
+      }
+    }
+
+    // Add keyboard shortcut for language toggle (Ctrl+L)
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.key === 'l') {
+        e.preventDefault();
+        toggleLanguage();
+      }
+    });
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      checkLanguageFromURL();
+    });
+
+    // Gallery scrolling functionality
+    let currentScrollPosition = 0;
+    let currentExhibitionScrollPosition = 0;
+    const galleryTrack = document.querySelector('.gallery-track');
+    const exhibitionTrack = document.querySelector('.exhibition-track');
+    const galleryItems = document.querySelectorAll('.gallery-track:not(.exhibition-track) .gallery-item');
+    const exhibitionItems = document.querySelectorAll('.exhibition-track .gallery-item');
+    const itemWidth = 300; // Width of each gallery item
+    const gap = 16; // Gap between items (1rem = 16px)
+    const maxScroll = (galleryItems.length - 1) * (itemWidth + gap);
+    const maxExhibitionScroll = (exhibitionItems.length - 1) * (itemWidth + gap);
+
+    function scrollGallery(direction) {
+      const scrollAmount = itemWidth + gap;
+      
+      if (direction === 'left') {
+        currentScrollPosition = Math.max(0, currentScrollPosition - scrollAmount);
+      } else if (direction === 'right') {
+        currentScrollPosition = Math.min(maxScroll, currentScrollPosition + scrollAmount);
+      }
+      
+      galleryTrack.style.transform = `translateX(-${currentScrollPosition}px)`;
+    }
+
+    function scrollExhibitionGallery(direction) {
+      const scrollAmount = itemWidth + gap;
+      
+      if (direction === 'left') {
+        currentExhibitionScrollPosition = Math.max(0, currentExhibitionScrollPosition - scrollAmount);
+      } else if (direction === 'right') {
+        currentExhibitionScrollPosition = Math.min(maxExhibitionScroll, currentExhibitionScrollPosition + scrollAmount);
+      }
+      
+      exhibitionTrack.style.transform = `translateX(-${currentExhibitionScrollPosition}px)`;
+    }
+
+    // Auto-scroll functionality
+    let autoScrollInterval;
+    let autoExhibitionScrollInterval;
+    
+    function startAutoScroll() {
+      autoScrollInterval = setInterval(() => {
+        if (currentScrollPosition >= maxScroll) {
+          currentScrollPosition = 0;
+        } else {
+          currentScrollPosition += itemWidth + gap;
+        }
+        galleryTrack.style.transform = `translateX(-${currentScrollPosition}px)`;
+      }, 3000); // Auto-scroll every 3 seconds
+    }
+
+    function startExhibitionAutoScroll() {
+      autoExhibitionScrollInterval = setInterval(() => {
+        if (currentExhibitionScrollPosition >= maxExhibitionScroll) {
+          currentExhibitionScrollPosition = 0;
+        } else {
+          currentExhibitionScrollPosition += itemWidth + gap;
+        }
+        exhibitionTrack.style.transform = `translateX(-${currentExhibitionScrollPosition}px)`;
+      }, 3500); // Auto-scroll every 3.5 seconds
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+
+    function stopExhibitionAutoScroll() {
+      clearInterval(autoExhibitionScrollInterval);
+    }
+
+    // Start auto-scroll when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      startAutoScroll();
+      startExhibitionAutoScroll();
+      
+      // Pause auto-scroll when hovering over galleries
+      const galleryContainers = document.querySelectorAll('.gallery-container');
+      galleryContainers.forEach((container, index) => {
+        container.addEventListener('mouseenter', () => {
+          if (index === 0) {
+            stopAutoScroll();
+          } else {
+            stopExhibitionAutoScroll();
+          }
+        });
+        
+        container.addEventListener('mouseleave', () => {
+          if (index === 0) {
+            startAutoScroll();
+          } else {
+            startExhibitionAutoScroll();
+          }
+        });
+      });
+    });
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    galleryTrack.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    galleryTrack.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe('course');
+    });
+
+    exhibitionTrack.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    exhibitionTrack.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe('exhibition');
+    });
+
+    function handleSwipe(type) {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - go right
+          if (type === 'course') {
+            scrollGallery('right');
+          } else {
+            scrollExhibitionGallery('right');
+          }
+        } else {
+          // Swipe right - go left
+          if (type === 'course') {
+            scrollGallery('left');
+          } else {
+            scrollExhibitionGallery('left');
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html> 

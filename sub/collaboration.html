@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh" class="lang-zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合作与作品 - HOOTO 花头精</title>
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    :root {
+      --primary-orange: #FF6B35;
+      --secondary-orange: #FF8C42;
+      --accent-orange: #FFA726;
+      --dark-orange: #E55A2B;
+      --light-orange: #FFE0B2;
+      --white: #FFFFFF;
+      --light-gray: #F8F9FA;
+      --dark-gray: #2C3E50;
+      --text-gray: #5D6D7E;
+    }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.6; 
+      color: var(--dark-gray); 
+      background: linear-gradient(135deg, var(--white), var(--light-orange));
+      min-height: 100vh;
+    }
+    
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(45deg, var(--primary-orange), var(--secondary-orange));
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+    
+    .project-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+    }
+    
+    .project-title {
+      font-size: 3rem;
+      background: linear-gradient(45deg, var(--primary-orange), var(--secondary-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    
+    .project-content {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+    
+    .project-section {
+      margin-bottom: 4rem;
+    }
+    
+    .project-section h2 {
+      font-size: 2.5rem;
+      color: var(--primary-orange);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    .project-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
+      border-radius: 2px;
+    }
+    
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .gallery-item {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .lang-zh .lang-en, .lang-en .lang-zh { display: none; }
+    .lang-zh .lang-zh, .lang-en .lang-en { display: block; }
+    
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 3rem 1rem 1rem;
+      }
+      
+      .project-title {
+        font-size: 2rem;
+      }
+      
+      .project-content {
+        padding: 2rem 1rem;
+      }
+      
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .project-section h2 {
+        font-size: 2rem;
+      }
+      
+      .image-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="../hooto.html" class="back-btn">
+    <span class="lang-zh">← 返回首页</span>
+    <span class="lang-en">← Back to Home</span>
+  </a>
+
+  <div class="project-container">
+    <h1 class="project-title">
+      <span class="lang-zh">合作与作品</span>
+      <span class="lang-en">Collaboration & Works</span>
+    </h1>
+
+    <div class="project-content">
+      <!-- 外部合作 Section -->
+      <div class="project-section">
+        <h2>
+          <span class="lang-zh">外部合作</span>
+          <span class="lang-en">External Collaboration</span>
+        </h2>
+        
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <img src="../sub3/外部/图片 1.png" alt="External Collaboration 1">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/外部/图片 2.png" alt="External Collaboration 2">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/外部/图片 3.png" alt="External Collaboration 3">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/外部/图片 4.png" alt="External Collaboration 4">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/外部/图片 5.png" alt="External Collaboration 5">
+          </div>
+        </div>
+      </div>
+
+      <!-- 作品展示 Section -->
+      <div class="project-section">
+        <h2>
+          <span class="lang-zh">作品展示</span>
+          <span class="lang-en">Works Showcase</span>
+        </h2>
+        
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <img src="../sub3/作品/图片 1.png" alt="Work Showcase 1">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/作品/图片 2.png" alt="Work Showcase 2">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/作品/截屏2025-08-05 下午12.39.30.png" alt="Work Showcase 3">
+          </div>
+          
+          <div class="gallery-item">
+            <img src="../sub3/作品/截屏2025-08-05 下午12.40.04.png" alt="Work Showcase 4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Language toggle functionality
+    function toggleLanguage() {
+      const html = document.documentElement;
+      const currentLang = html.classList.contains('lang-zh') ? 'zh' : 'en';
+      const newLang = currentLang === 'zh' ? 'en' : 'zh';
+      
+      html.classList.remove('lang-zh', 'lang-en');
+      html.classList.add('lang-' + newLang);
+      html.lang = newLang;
+    }
+
+    // Check URL parameters for language preference
+    function checkLanguageFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang');
+      if (lang === 'en') {
+        document.documentElement.classList.remove('lang-zh');
+        document.documentElement.classList.add('lang-en');
+        document.documentElement.lang = 'en';
+      }
+    }
+
+    // Add keyboard shortcut for language toggle (Ctrl+L)
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.key === 'l') {
+        e.preventDefault();
+        toggleLanguage();
+      }
+    });
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      checkLanguageFromURL();
+    });
+
+    // Add hover effects to gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  </script>
+</body>
+</html> 
