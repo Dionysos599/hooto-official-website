@@ -1,280 +1,140 @@
-<!DOCTYPE html>
-<html lang="zh" class="lang-zh">
+<!doctype html>
+<html lang="zh-CN" class="lang-zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IP设计项目 - HOOTO 花头精</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      line-height: 1.6; 
-      color: #333; 
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      min-height: 100vh;
-    }
-    
-    .back-btn {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      padding: 0.75rem 1.5rem;
-      background: linear-gradient(45deg, #ff6b35 0%, #f7931e 100%);
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: 500;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-    }
-    
-    .back-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-    }
-    
-    .project-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem 2rem;
-    }
-    
-    .project-hero {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .project-hero img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-      margin-bottom: 2rem;
-    }
-    
-    .project-title {
-      font-size: 3rem;
-      background: linear-gradient(45deg, #ff6b35 0%, #f7931e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-    }
-    
-    .project-subtitle {
-      font-size: 1.2rem;
-      color: #666;
-      margin-bottom: 2rem;
-    }
-    
-    .project-content {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .project-section {
-      margin-bottom: 3rem;
-    }
-    
-    .project-section h2 {
-      font-size: 2rem;
-      color: #ff6b35;
-      margin-bottom: 1.5rem;
-      border-bottom: 3px solid #ff6b35;
-      padding-bottom: 0.5rem;
-    }
-    
-    .project-section h3 {
-      font-size: 1.5rem;
-      color: #f7931e;
-      margin: 2rem 0 1rem 0;
-    }
-    
-    .project-section p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .project-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .feature-item {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    
-    .feature-item:hover {
-      transform: translateY(-5px);
-    }
-    
-    .feature-item h4 {
-      color: #ff6b35;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-    
-    .lang-zh .lang-en, .lang-en .lang-zh { display: none; }
-    .lang-zh .lang-zh, .lang-en .lang-en { display: block; }
-    
-    @media (max-width: 768px) {
-      .project-container {
-        padding: 3rem 1rem 1rem;
-      }
-      
-      .project-title {
-        font-size: 2rem;
-      }
-      
-      .project-content {
-        padding: 2rem 1rem;
-      }
-      
-      .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HOOTO 花头精 IP 与文创产品设计。">
+  <title>IP与文创产品｜HOOTO 花头精</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../subpage.css">
+  <script src="../subpage.js" defer></script>
 </head>
-<body>
-  <a href="../hooto.html" class="back-btn">
-    <span class="lang-zh">← 返回首页</span>
-    <span class="lang-en">← Back to Home</span>
-  </a>
+<body class="theme-ip" data-fallback-image="ip.png">
+  <div class="page-noise" aria-hidden="true"></div>
 
-  <div class="project-container">
-    <div class="project-hero">
-      <img src="ip.png" alt="IP Design Project">
-      <h1 class="project-title">
-        <span class="lang-zh">IP和文创产品</span>
-        <span class="lang-en">IP and Cultural Products</span>
-      </h1>
-      <p class="project-subtitle">
-        <span class="lang-zh">创造独特的IP形象与文创产品</span>
-        <span class="lang-en">Creating unique IP images and cultural products</span>
-      </p>
+  <header class="case-header">
+    <a class="case-brand case-brand--image" href="../index.html"><img src="../image/2091753755203_.pic.png" alt="HOOTO 花头精"></a>
+    <p class="case-header-title"><span class="lang-zh">IP与文创产品</span><span class="lang-en">IP & Cultural Products</span></p>
+    <div class="case-actions">
+      <a class="case-back" href="../index.html#projects"><span class="lang-zh">返回</span><span class="lang-en">Back</span><span>←</span></a>
     </div>
+  </header>
 
-    <div class="project-content">
-      <div class="project-section">
-        <h2><span class="lang-zh">项目概述</span><span class="lang-en">Project Overview</span></h2>
-        <p>
-          <span class="lang-zh">Hooto花头精有自己独立设计的ip形象和文创产品。像充满点子般的花头精一般，以童趣可爱，活力十足的设计语言，将文创IP与多文化文创产品结合，为大众带来童趣盎然的生活体验。</span>
-          <span class="lang-en">Hooto Huatoujing has its own independently designed IP images and cultural creative products. Like the idea-filled Huatoujing, we use childlike, cute, and vibrant design language to combine cultural IP with multicultural creative products, bringing a delightful life experience to the public.</span>
-        </p>
-      </div>
-
-      <div class="project-section">
-        <h2><span class="lang-zh">设计特色</span><span class="lang-en">Design Features</span></h2>
-        <div class="project-features">
-          <div class="feature-item">
-            <h4><span class="lang-zh">IP设计</span><span class="lang-en">IP Design</span></h4>
-            <p><span class="lang-zh">创造独特的品牌IP形象，包括角色设计、视觉识别系统和品牌故事</span><span class="lang-en">Creating unique brand IP images, including character design, visual identity systems, and brand stories</span></p>
-          </div>
-          <div class="feature-item">
-            <h4><span class="lang-zh">文创作品</span><span class="lang-en">Cultural Works</span></h4>
-            <p><span class="lang-zh">将文化元素融入设计，创作具有文化内涵和艺术价值的文创产品</span><span class="lang-en">Integrating cultural elements into design to create cultural products with cultural connotations and artistic value</span></p>
-          </div>
-          <div class="feature-item">
-            <h4><span class="lang-zh">作品展示</span><span class="lang-en">Works Exhibition</span></h4>
-            <p><span class="lang-zh">展示我们的设计作品和文创产品，体现创意理念和设计实力</span><span class="lang-en">Showcasing our design works and cultural products, reflecting creative concepts and design capabilities</span></p>
+  <main>
+    <section class="case-hero">
+      <div class="case-hero-sticky">
+        <img class="case-hero-image" src="ip.png" alt="HOOTO 花头精角色系列">
+        <div class="case-hero-content">
+          <div class="case-eyebrow"><span>(01)</span><span>IP DESIGN / CULTURAL PRODUCTS</span></div>
+          <h1 class="case-hero-title"><span class="lang-zh">IP与<br>文创产品</span><span class="lang-en">IP &<br>Cultural Products</span></h1>
+          <div class="case-hero-footer">
+            <span>2024 — ONGOING</span>
+            <p><span class="lang-zh">创造独特的IP形象与文创产品</span><span class="lang-en">Creating unique IP images and cultural products</span></p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Character Design Gallery Section -->
-      <div class="project-section">
-        <h2><span class="lang-zh">角色与设计图集</span><span class="lang-en">Character & Design Gallery</span></h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 2rem 0;">
-          <div style="text-align: center;">
-            <img src="../sub1/图片 1.png" alt="角色设计1 Character Design 1" style="width:100%; max-width:400px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.15); margin-bottom:1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;"><span class="lang-zh">花头精角色设计细节图</span><span class="lang-en">Huatoujing Character Design Details</span></p>
-          </div>
-          <div style="text-align: center;">
-            <img src="../sub1/图片 3.jpg" alt="角色设计2 Character Design 2" style="width:100%; max-width:400px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.15); margin-bottom:1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;"><span class="lang-zh">花头精角色设计线稿</span><span class="lang-en">Huatoujing Character Design Line Art</span></p>
-          </div>
-          <div style="text-align: center;">
-            <img src="../sub1/图片 4.jpg" alt="角色设计3 Character Design 3" style="width:100%; max-width:400px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.15); margin-bottom:1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;"><span class="lang-zh">花头精角色设计上色图</span><span class="lang-en">Huatoujing Character Design Colored</span></p>
-          </div>
-          <div style="text-align: center;">
-            <img src="../sub1/图片 5.png" alt="角色设计4 Character Design 4" style="width:100%; max-width:400px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.15); margin-bottom:1rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;"><span class="lang-zh">花头精角色设计完成图</span><span class="lang-en">Huatoujing Character Design Final</span></p>
-          </div>
+    <section class="case-intro">
+      <aside class="case-intro-side">
+        <span class="case-index">(01) / 04</span>
+        <div class="section-label"><span class="lang-zh">项目概述</span><span class="lang-en">Overview</span></div>
+        <div class="case-facts">
+          <div><span>TYPE</span><strong>IP Design</strong></div>
+          <div><span>OUTPUT</span><strong>Character / Product</strong></div>
+          <div><span>STUDIO</span><strong>HOOTO</strong></div>
+        </div>
+      </aside>
+      <div class="case-intro-main">
+        <h2><span class="lang-zh">让角色走进<br>真实生活。</span><span class="lang-en">Characters made<br>for real life.</span></h2>
+        <div class="case-intro-copy">
+          <p class="lang-zh">Hooto花头精有自己独立设计的ip形象和文创产品。像充满点子般的花头精一般，以童趣可爱，活力十足的设计语言，将文创IP与多文化文创产品结合，为大众带来童趣盎然的生活体验。</p>
+          <p class="lang-en">Hooto Huatoujing has its own independently designed IP images and cultural creative products. Like the idea-filled Huatoujing, we use childlike, cute, and vibrant design language to combine cultural IP with multicultural creative products, bringing a delightful life experience to the public.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Cultural Products Gallery Section -->
-      <div class="project-section">
-        <h2><span class="lang-zh">文创产品</span><span class="lang-en">Cultural Products</span></h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; margin: 2rem 0;">
-          <div style="text-align: center;">
-            <img src="../sub1/图片 1.jpg" alt="文创产品1 Cultural Product 1" style="width:100%; max-width:500px; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.2); margin-bottom:1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <h3 style="color: #ff6b35; margin-bottom: 1rem; font-size: 1.4rem;"><span class="lang-zh">花头精卡通形象PVC肩包</span><span class="lang-en">Huatoujing Cartoon PVC Shoulder Bag</span></h3>
-            <p style="color: #666; font-size: 1rem; line-height: 1.6; max-width: 400px; margin: 0 auto;"><span class="lang-zh">以花头精IP形象为基础设计的文创产品，融合童趣可爱的设计元素，为日常生活增添艺术气息和趣味性。</span><span class="lang-en">Cultural products designed based on the Huatoujing IP image, incorporating childlike and cute design elements to add artistic atmosphere and fun to daily life.</span></p>
-          </div>
-          <div style="text-align: center;">
-            <img src="../sub1/图片 2.jpg" alt="文创产品2 Cultural Product 2" style="width:100%; max-width:500px; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.2); margin-bottom:1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <h3 style="color: #ff6b35; margin-bottom: 1rem; font-size: 1.4rem;"><span class="lang-zh">花头精卡通形象镭射徽章Pin</span><span class="lang-en">Huatoujing Cartoon Laser Badge Pin</span></h3>
-            <p style="color: #666; font-size: 1rem; line-height: 1.6; max-width: 400px; margin: 0 auto;"><span class="lang-zh">精心打造的文创产品系列，展现花头精独特的创意理念和设计风格，让艺术融入生活的每个细节。</span><span class="lang-en">Carefully crafted cultural product series showcasing Huatoujing's unique creative concepts and design style, integrating art into every detail of life.</span></p>
-          </div>
+    <section class="feature-strip" aria-label="设计特色">
+      <article>
+        <span>01</span>
+        <h3><span class="lang-zh">IP设计</span><span class="lang-en">IP Design</span></h3>
+        <p><span class="lang-zh">创造独特的品牌IP形象，包括角色设计、视觉识别系统和品牌故事。</span><span class="lang-en">Creating unique brand IP images, including character design, visual identity systems, and brand stories.</span></p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3><span class="lang-zh">文创作品</span><span class="lang-en">Cultural Works</span></h3>
+        <p><span class="lang-zh">将文化元素融入设计，创作具有文化内涵和艺术价值的文创产品。</span><span class="lang-en">Integrating cultural elements into design to create products with cultural meaning and artistic value.</span></p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3><span class="lang-zh">作品展示</span><span class="lang-en">Works Exhibition</span></h3>
+        <p><span class="lang-zh">展示我们的设计作品和文创产品，体现创意理念和设计实力。</span><span class="lang-en">Showcasing our design works and cultural products, reflecting creative concepts and design capabilities.</span></p>
+      </article>
+    </section>
+
+    <section class="gallery-section">
+      <div class="gallery-heading">
+        <div class="section-label"><span>(02)</span><span class="lang-zh">角色与设计图集</span><span class="lang-en">Character Gallery</span></div>
+        <div>
+          <h2><span class="lang-zh">从线稿到<br>角色世界。</span><span class="lang-en">From sketch<br>to character.</span></h2>
+          <p class="gallery-description"><span class="lang-zh">从角色设定、植物灵感人设，到贴纸与徽章的完整角色世界。</span><span class="lang-en">From character sheets and plant-inspired personas to stickers and badges.</span></p>
         </div>
       </div>
+      <div class="editorial-grid">
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub1/character-sticker-set.png" alt="角色贴纸合集"></div>
+          <figcaption class="media-caption"><span class="lang-zh">角色贴纸合集</span><span class="lang-en">Character Sticker Set</span><span>01</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub1/character-fern-girl-sheet.jpg" alt="蕨类女孩角色设定"></div>
+          <figcaption class="media-caption"><span class="lang-zh">蕨类女孩角色设定</span><span class="lang-en">Fern Girl Character Sheet</span><span>02</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub1/character-moss-girl-sheet.jpg" alt="梨葫珠藓角色设定"></div>
+          <figcaption class="media-caption"><span class="lang-zh">梨葫珠藓角色设定</span><span class="lang-en">Moss Girl Character Sheet</span><span>03</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub1/character-liverwort-girl-sheet.png" alt="地钱角色设定"></div>
+          <figcaption class="media-caption"><span class="lang-zh">地钱角色设定</span><span class="lang-en">Liverwort Girl Character Sheet</span><span>04</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
+    <section class="gallery-section gallery-section--dark">
+      <div class="gallery-heading">
+        <div class="section-label"><span>(03)</span><span class="lang-zh">文创产品</span><span class="lang-en">Cultural Products</span></div>
+        <div>
+          <h2><span class="lang-zh">艺术融入<br>每个细节。</span><span class="lang-en">Art in every<br>detail.</span></h2>
+        </div>
+      </div>
+      <div class="editorial-grid">
+        <figure class="media-card">
+          <div class="media-frame"><img data-lightbox-image src="../sub1/next-tote-bag-mockups.jpg" alt="N.E.X.T 帆布袋设计稿"></div>
+          <figcaption class="media-caption"><span class="lang-zh">N.E.X.T 帆布袋设计稿</span><span class="lang-en">N.E.X.T Tote Bag Mockups</span><span>01</span></figcaption>
+        </figure>
+        <figure class="media-card">
+          <div class="media-frame"><img data-lightbox-image src="../sub1/character-pin-badge-display.jpg" alt="角色徽章实物陈列"></div>
+          <figcaption class="media-caption"><span class="lang-zh">角色徽章实物陈列</span><span class="lang-en">Character Pin Badge Display</span><span>02</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
-    </div>
-  </div>
+    <section class="next-case">
+      <a href="summer.html">
+        <div class="section-label"><span class="lang-zh">下一个项目</span><span class="lang-en">Next project</span><span>↗</span></div>
+        <h2><span class="lang-zh">暑期课程</span><span class="lang-en">Summer Courses</span></h2>
+      </a>
+      <div class="next-case-footer"><span>02 / 03</span><span>N.E.X.T WORKSHOP</span></div>
+    </section>
+  </main>
 
-  <script>
-    // Language toggle functionality
-    function toggleLanguage() {
-      const html = document.documentElement;
-      const currentLang = html.classList.contains('lang-zh') ? 'zh' : 'en';
-      const newLang = currentLang === 'zh' ? 'en' : 'zh';
-      
-      html.classList.remove('lang-zh', 'lang-en');
-      html.classList.add('lang-' + newLang);
-      html.lang = newLang;
-    }
+  <footer class="case-footer"><span>© 2024–2026 HOOTO STUDIO</span><a href="#top"><span class="lang-zh">回到顶部</span><span class="lang-en">Back to top</span> ↑</a></footer>
 
-    // Check URL parameters for language preference
-    function checkLanguageFromURL() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const lang = urlParams.get('lang');
-      if (lang === 'en') {
-        document.documentElement.classList.remove('lang-zh');
-        document.documentElement.classList.add('lang-en');
-        document.documentElement.lang = 'en';
-      }
-    }
-
-    // Add keyboard shortcut for language toggle (Ctrl+L)
-    document.addEventListener('keydown', function(e) {
-      if (e.ctrlKey && e.key === 'l') {
-        e.preventDefault();
-        toggleLanguage();
-      }
-    });
-
-    // Initialize language on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      checkLanguageFromURL();
-    });
-  </script>
+  <dialog class="lightbox" data-lightbox>
+    <button class="lightbox-close" data-lightbox-close aria-label="关闭">×</button>
+    <div class="lightbox-inner"><img alt=""></div>
+  </dialog>
 </body>
-</html> 
+</html>

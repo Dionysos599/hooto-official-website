@@ -1,289 +1,133 @@
-<!DOCTYPE html>
-<html lang="zh" class="lang-zh">
+<!doctype html>
+<html lang="zh-CN" class="lang-zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>合作与作品 - HOOTO 花头精</title>
-  <style>
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
-    
-    :root {
-      --primary-orange: #FF6B35;
-      --secondary-orange: #FF8C42;
-      --accent-orange: #FFA726;
-      --dark-orange: #E55A2B;
-      --light-orange: #FFE0B2;
-      --white: #FFFFFF;
-      --light-gray: #F8F9FA;
-      --dark-gray: #2C3E50;
-      --text-gray: #5D6D7E;
-    }
-    
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      line-height: 1.6; 
-      color: var(--dark-gray); 
-      background: linear-gradient(135deg, var(--white), var(--light-orange));
-      min-height: 100vh;
-    }
-    
-    .back-btn {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      padding: 0.75rem 1.5rem;
-      background: linear-gradient(45deg, var(--primary-orange), var(--secondary-orange));
-      color: var(--white);
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: 500;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-    }
-    
-    .back-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-    }
-    
-    .project-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem 2rem;
-    }
-    
-    .project-title {
-      font-size: 3rem;
-      background: linear-gradient(45deg, var(--primary-orange), var(--secondary-orange));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-weight: 700;
-    }
-    
-    .project-content {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      margin-top: 2rem;
-    }
-    
-    .project-section {
-      margin-bottom: 4rem;
-    }
-    
-    .project-section h2 {
-      font-size: 2.5rem;
-      color: var(--primary-orange);
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-    
-    .project-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
-      border-radius: 2px;
-    }
-    
-    .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .gallery-item {
-      background: var(--white);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
-    }
-    
-    .gallery-item img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-    
-    .lang-zh .lang-en, .lang-en .lang-zh { display: none; }
-    .lang-zh .lang-zh, .lang-en .lang-en { display: block; }
-    
-    @media (max-width: 768px) {
-      .project-container {
-        padding: 3rem 1rem 1rem;
-      }
-      
-      .project-title {
-        font-size: 2rem;
-      }
-      
-      .project-content {
-        padding: 2rem 1rem;
-      }
-      
-      .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-      
-      .project-section h2 {
-        font-size: 2rem;
-      }
-      
-      .image-gallery {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HOOTO 花头精合作项目与作品展示。">
+  <title>合作与作品｜HOOTO 花头精</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../subpage.css">
+  <script src="../subpage.js" defer></script>
 </head>
-<body>
-  <a href="../hooto.html" class="back-btn">
-    <span class="lang-zh">← 返回首页</span>
-    <span class="lang-en">← Back to Home</span>
-  </a>
+<body class="theme-collaboration" data-fallback-image="bee.png">
+  <div class="page-noise" aria-hidden="true"></div>
 
-  <div class="project-container">
-    <h1 class="project-title">
-      <span class="lang-zh">合作与作品</span>
-      <span class="lang-en">Collaboration & Works</span>
-    </h1>
-
-    <div class="project-content">
-      <!-- 外部合作 Section -->
-      <div class="project-section">
-        <h2>
-          <span class="lang-zh">外部合作</span>
-          <span class="lang-en">External Collaboration</span>
-        </h2>
-        
-        <div class="image-gallery">
-          <div class="gallery-item">
-            <img src="../sub3/外部/图片 1.png" alt="External Collaboration 1">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/外部/图片 2.png" alt="External Collaboration 2">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/外部/图片 3.png" alt="External Collaboration 3">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/外部/图片 4.png" alt="External Collaboration 4">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/外部/图片 5.png" alt="External Collaboration 5">
-          </div>
-        </div>
-      </div>
-
-      <!-- 作品展示 Section -->
-      <div class="project-section">
-        <h2>
-          <span class="lang-zh">作品展示</span>
-          <span class="lang-en">Works Showcase</span>
-        </h2>
-        
-        <div class="image-gallery">
-          <div class="gallery-item">
-            <img src="../sub3/作品/图片 1.png" alt="Work Showcase 1">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/作品/图片 2.png" alt="Work Showcase 2">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/作品/截屏2025-08-05 下午12.39.30.png" alt="Work Showcase 3">
-          </div>
-          
-          <div class="gallery-item">
-            <img src="../sub3/作品/截屏2025-08-05 下午12.40.04.png" alt="Work Showcase 4">
-          </div>
-        </div>
-      </div>
+  <header class="case-header">
+    <a class="case-brand case-brand--image" href="../index.html"><img src="../image/2091753755203_.pic.png" alt="HOOTO 花头精"></a>
+    <p class="case-header-title"><span class="lang-zh">合作与作品</span><span class="lang-en">Collaboration & Works</span></p>
+    <div class="case-actions">
+      <a class="case-back" href="../index.html#projects"><span class="lang-zh">返回</span><span class="lang-en">Back</span><span>←</span></a>
     </div>
-  </div>
+  </header>
 
-  <script>
-    // Language toggle functionality
-    function toggleLanguage() {
-      const html = document.documentElement;
-      const currentLang = html.classList.contains('lang-zh') ? 'zh' : 'en';
-      const newLang = currentLang === 'zh' ? 'en' : 'zh';
-      
-      html.classList.remove('lang-zh', 'lang-en');
-      html.classList.add('lang-' + newLang);
-      html.lang = newLang;
-    }
+  <main id="top">
+    <section class="case-hero">
+      <div class="case-hero-sticky">
+        <img class="case-hero-image" src="bee.png" alt="HOOTO 外部合作设计项目">
+        <div class="case-hero-content">
+          <div class="case-eyebrow"><span>(03)</span><span>COLLABORATION / VISUAL DESIGN</span></div>
+          <h1 class="case-hero-title"><span class="lang-zh">合作与<br>作品</span><span class="lang-en">Collaboration<br>& Works</span></h1>
+          <div class="case-hero-footer">
+            <span>SELECTED WORKS</span>
+            <p><span class="lang-zh">在真实需求中连接不同媒介、专业知识与视觉表达</span><span class="lang-en">Connecting mixed media, expertise and visual expression through real needs</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // Check URL parameters for language preference
-    function checkLanguageFromURL() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const lang = urlParams.get('lang');
-      if (lang === 'en') {
-        document.documentElement.classList.remove('lang-zh');
-        document.documentElement.classList.add('lang-en');
-        document.documentElement.lang = 'en';
-      }
-    }
+    <section class="case-intro">
+      <aside class="case-intro-side">
+        <span class="case-index">(01) / 03</span>
+        <div class="section-label"><span class="lang-zh">合作方式</span><span class="lang-en">Approach</span></div>
+        <div class="case-facts">
+          <div><span>FIELDS</span><strong>Illustration / Graphic / Architecture</strong></div>
+          <div><span>FORMAT</span><strong>Brand / Visual / Product</strong></div>
+          <div><span>STUDIO</span><strong>HOOTO</strong></div>
+        </div>
+      </aside>
+      <div class="case-intro-main">
+        <h2><span class="lang-zh">不同专业，<br>共同完成。</span><span class="lang-en">Different minds.<br>One outcome.</span></h2>
+        <div class="case-intro-copy">
+          <p class="lang-zh">团队成员来自全球多所顶尖综合类高校和艺术院校，涵盖插画、平面设计、建筑、工程等多个领域。我们具备扎实的专业基础与审美执行力，能够满足绝大部分市场需求的艺术形式。</p>
+          <p class="lang-en">Our team members hail from top comprehensive and art institutions worldwide, covering fields such as illustration, graphic design, architecture, and engineering. We boast a solid professional foundation and aesthetic execution capability, capable of meeting most market demands for artistic forms.</p>
+        </div>
+      </div>
+    </section>
 
-    // Add keyboard shortcut for language toggle (Ctrl+L)
-    document.addEventListener('keydown', function(e) {
-      if (e.ctrlKey && e.key === 'l') {
-        e.preventDefault();
-        toggleLanguage();
-      }
-    });
+    <section class="gallery-section gallery-section--dark">
+      <div class="gallery-heading">
+        <div class="section-label"><span>(02)</span><span class="lang-zh">外部合作</span><span class="lang-en">External Collaboration</span></div>
+        <div>
+          <h2><span class="lang-zh">从需求出发，<br>建立视觉秩序。</span><span class="lang-en">From real needs<br>to visual order.</span></h2>
+        </div>
+      </div>
+      <div class="editorial-grid">
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/external/true-honey-product-grid.png" alt="True Honey 产品矩阵"></div>
+          <figcaption class="media-caption"><span class="lang-zh">True Honey 产品矩阵</span><span class="lang-en">True Honey Product Grid</span><span>01</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/external/true-honey-rare-harvest-rh2050.png" alt="Rare Harvest RH2050"></div>
+          <figcaption class="media-caption"><span class="lang-zh">Rare Harvest RH2050</span><span class="lang-en">Rare Harvest RH2050</span><span>02</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/external/true-honey-mgo1250-gift-set.png" alt="MGO1250 黄金礼盒"></div>
+          <figcaption class="media-caption"><span class="lang-zh">MGO1250 黄金礼盒</span><span class="lang-en">MGO1250 Gift Set</span><span>03</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/external/matau-floral-border-patterns.png" alt="Matau 花纹边框"></div>
+          <figcaption class="media-caption"><span class="lang-zh">Matau 花纹边框</span><span class="lang-en">Matau Floral Borders</span><span>04</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/external/tribal-bee-motif.png" alt="部落风格蜜蜂图形"></div>
+          <figcaption class="media-caption"><span class="lang-zh">部落风格蜜蜂图形</span><span class="lang-en">Tribal Bee Motif</span><span>05</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
-    // Initialize language on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      checkLanguageFromURL();
-    });
+    <section class="gallery-section">
+      <div class="gallery-heading">
+        <div class="section-label"><span>(03)</span><span class="lang-zh">作品展示</span><span class="lang-en">Works Showcase</span></div>
+        <div>
+          <h2><span class="lang-zh">多元表达，<br>不止一种答案。</span><span class="lang-en">Many forms.<br>More than one answer.</span></h2>
+        </div>
+      </div>
+      <div class="editorial-grid">
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/works/next-workshop-poster-purple.png" alt="N.E.X.T 工作坊海报（紫）"></div>
+          <figcaption class="media-caption"><span class="lang-zh">N.E.X.T 工作坊海报（紫）</span><span class="lang-en">N.E.X.T Workshop Poster</span><span>01</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/works/next-workshop-poster-green.png" alt="N.E.X.T 工作坊海报（绿）"></div>
+          <figcaption class="media-caption"><span class="lang-zh">N.E.X.T 工作坊海报（绿）</span><span class="lang-en">N.E.X.T Workshop Poster</span><span>02</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/works/fragrance-slides-packaging.png" alt="冷觉手制冷香片包装"></div>
+          <figcaption class="media-caption"><span class="lang-zh">冷觉手制冷香片包装</span><span class="lang-en">Fragrance Slides Packaging</span><span>03</span></figcaption>
+        </figure>
+        <figure class="media-card media-card--contain">
+          <div class="media-frame"><img data-lightbox-image src="../sub3/works/sijue-cold-fragrance-packaging.png" alt="四觉×Hooto 冷香包装"></div>
+          <figcaption class="media-caption"><span class="lang-zh">四觉×Hooto 冷香包装</span><span class="lang-en">Sijue × Hooto Packaging</span><span>04</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
-    // Add hover effects to gallery items
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-      });
-      
-      item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-      });
-    });
-  </script>
+    <section class="next-case">
+      <a href="ip.html">
+        <div class="section-label"><span class="lang-zh">回到第一个项目</span><span class="lang-en">Back to first project</span><span>↗</span></div>
+        <h2><span class="lang-zh">IP与文创产品</span><span class="lang-en">IP & Cultural Products</span></h2>
+      </a>
+      <div class="next-case-footer"><span>01 / 03</span><span>HOOTO IP</span></div>
+    </section>
+  </main>
+
+  <footer class="case-footer"><span>© 2024–2026 HOOTO STUDIO</span><a href="#top"><span class="lang-zh">回到顶部</span><span class="lang-en">Back to top</span> ↑</a></footer>
+
+  <dialog class="lightbox" data-lightbox>
+    <button class="lightbox-close" data-lightbox-close aria-label="关闭">×</button>
+    <div class="lightbox-inner"><img alt=""></div>
+  </dialog>
 </body>
-</html> 
+</html>
