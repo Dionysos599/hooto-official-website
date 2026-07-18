@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="zh" class="lang-zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOOTO 花头精</title>
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    :root {
+      --primary-orange: #FF6B35;
+      --secondary-orange: #FF8C42;
+      --accent-orange: #FFA726;
+      --dark-orange: #E55A2B;
+      --light-orange: #FFE0B2;
+      --white: #FFFFFF;
+      --light-gray: #F8F9FA;
+      --dark-gray: #2C3E50;
+      --text-gray: #5D6D7E;
+    }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.6; 
+      color: var(--dark-gray); 
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 1.5rem 3rem; 
+      background: var(--white); 
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.1); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    
+    h1 { 
+      font-size: 2rem; 
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    nav { 
+      display: flex; 
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links { 
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a { 
+      color: var(--dark-gray); 
+      text-decoration: none; 
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-orange);
+      background: var(--light-orange);
+      transform: translateY(-2px);
+    }
+    
+    #toggleLang { 
+      padding: 0.75rem 1.5rem; 
+      border: 2px solid var(--primary-orange); 
+      background: var(--white); 
+      color: var(--primary-orange); 
+      cursor: pointer; 
+      border-radius: 25px; 
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    #toggleLang:hover {
+      background: var(--primary-orange);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--light-orange), var(--white));
+    }
+    
+    .hero-image { 
+      text-align: center; 
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .hero-image:hover {
+      transform: scale(1.02);
+    }
+    
+    .hero-image img { 
+      max-width: 100%; 
+      height: auto;
+      border-radius: 20px;
+    }
+    
+    /* Carousel Section */
+    .carousel-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, var(--white), var(--light-orange));
+    }
+    
+    .carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .carousel-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--dark-gray);
+      position: relative;
+    }
+    
+    .carousel-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
+      border-radius: 2px;
+    }
+    
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .carousel-inner {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+    
+    .carousel-item {
+      width: 33.333%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 3rem 2rem 2rem;
+      color: var(--white);
+    }
+    
+    .carousel-overlay h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .carousel-overlay p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .carousel-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--light-orange);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary-orange);
+    }
+    
+    .carousel-indicator.active {
+      background: var(--primary-orange);
+      transform: scale(1.2);
+    }
+    
+    .carousel-indicator:hover {
+      background: var(--secondary-orange);
+      transform: scale(1.1);
+    }
+    
+    /* Main Content */
+    .container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 2rem; 
+    }
+    
+    section { 
+      margin-bottom: 4rem; 
+      padding: 3rem 0;
+    }
+    
+    section:nth-child(even) {
+      background: var(--light-gray);
+    }
+    
+    section h2 { 
+      margin-bottom: 2rem; 
+      font-size: 2.5rem; 
+      color: var(--dark-gray);
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
+      border-radius: 2px;
+    }
+    
+    section h3 {
+      color: var(--primary-orange);
+      font-size: 1.5rem;
+      margin: 1.5rem 0 1rem 0;
+      font-weight: 600;
+    }
+
+    .brand-subsection {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--light-gray);
+      border-radius: 15px;
+    }
+
+    .brand-subsection h3 {
+      color: var(--primary-orange);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--primary-orange);
+      padding-bottom: 0.5rem;
+    }
+
+    .brand-subsection h4 {
+      color: var(--secondary-orange);
+      font-size: 1.3rem;
+      margin: 1.5rem 0 1rem 0;
+      font-weight: 600;
+    }
+    
+    section p {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .services-list, .philosophy-list { 
+      list-style: none; 
+      padding-left: 0; 
+    }
+    
+    .services-list li, .philosophy-list li { 
+      margin-bottom: 1rem; 
+      padding: 1rem 1.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-orange);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .services-list li:hover, .philosophy-list li:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.1);
+    }
+    
+    /* Language Toggle */
+    .lang-zh .lang-en, .lang-en .lang-zh { display: none; }
+    .lang-zh .lang-zh, .lang-en .lang-en { display: block; }
+    
+    /* New Sections Styling */
+    .section-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--dark-gray);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
+      border-radius: 2px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .content-grid.reverse {
+      direction: rtl;
+    }
+
+    .content-grid.reverse > * {
+      direction: ltr;
+    }
+
+    .text-content {
+      padding: 2rem;
+    }
+
+    .section-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+    }
+
+    .action-buttons {
+      text-align: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    .image-content {
+      text-align: center;
+    }
+
+    .section-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .section-image:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .section-content {
+        padding: 2rem 1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .text-content {
+        padding: 1rem;
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .carousel {
+        height: 300px;
+      }
+      
+      .carousel-overlay h3 {
+        font-size: 1.8rem;
+      }
+      
+      .carousel-overlay p {
+        font-size: 1rem;
+      }
+      
+      .hero-section {
+        height: 60vh;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating Contact Form */
+    .floating-contact {
+      position: fixed;
+      right: 2rem;
+      bottom: 2rem;
+      width: 350px;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.3s ease, opacity 0.2s ease;
+      border: 3px solid var(--primary-orange);
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .floating-contact.open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .contact-toggle {
+      position: fixed;
+      right: 2rem;
+      bottom: 2rem;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .contact-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    }
+
+    .contact-header {
+      background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 17px 17px 0 0;
+      text-align: center;
+    }
+
+    .contact-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .contact-form {
+      padding: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--dark-gray);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--light-gray);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--dark-orange);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:disabled {
+      background: var(--text-gray);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .success-message {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .error-message {
+      background: #f44336;
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .floating-contact {
+        width: 300px;
+        right: 1rem;
+        bottom: 1rem;
+      }
+      
+      .contact-toggle {
+        right: 1rem;
+        bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <span class="lang-zh">HOOTO 花头精</span>
+      <span class="lang-en">HOOTO</span>
+    </h1>
+    <nav>
+      <div class="nav-links">
+        <a href="#brand"><span class="lang-zh">品牌</span><span class="lang-en">Brand</span></a>
+        <a href="#summer-courses"><span class="lang-zh">暑期课程</span><span class="lang-en">Summer Courses</span></a>
+        <a href="#ip-products"><span class="lang-zh">IP与文创产品</span><span class="lang-en">IP & Products</span></a>
+        <a href="#contact"><span class="lang-zh">联系我们</span><span class="lang-en">Contact</span></a>
+      </div>
+      <button id="toggleLang">
+        <span class="lang-zh">English</span>
+        <span class="lang-en">中文</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-image">
+      <span class="lang-en"><img src="image/896b3e9d-da7a-4a27-b4e6-cb7eeed55f71.jpg" alt="HOOTO Logo"></span>
+      <span class="lang-zh"><img src="image/2091753755203_.pic.png" alt="花头精 设计工作室"></span>
+    </div>
+  </section>
+
+  <!-- Carousel Section -->
+  <section class="carousel-section">
+    <div class="carousel-container">
+      <h2 class="carousel-title">
+        <span class="lang-zh">精选项目</span>
+        <span class="lang-en">Featured Projects</span>
+      </h2>
+      <div class="carousel">
+        <div class="carousel-inner" id="carouselInner">
+          <div class="carousel-item" onclick="openSubpage('sub/ip.html')">
+            <img src="sub/ip.png" alt="IP Project">
+            <div class="carousel-overlay">
+              <h3><span class="lang-zh">IP与文创产品</span><span class="lang-en">IP & Cultural Products</span></h3>
+            </div>
+          </div>
+          <div class="carousel-item" onclick="openSubpage('sub/summer.html')">
+            <img src="sub/summer.jpg" alt="Summer Project">
+            <div class="carousel-overlay">
+              <h3><span class="lang-zh">暑期项目</span><span class="lang-en">Summer Projects</span></h3>
+            </div>
+          </div>
+          <div class="carousel-item" onclick="openSubpage('sub/collaboration.html')">
+            <img src="sub/bee.png" alt="Collaboration Project">
+            <div class="carousel-overlay">
+              <h3><span class="lang-zh">合作与作品</span><span class="lang-en">Collaboration & Works</span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-indicators">
+        <div class="carousel-indicator active" data-slide="0"></div>
+        <div class="carousel-indicator" data-slide="1"></div>
+        <div class="carousel-indicator" data-slide="2"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section id="brand">
+      <div class="brand-subsection">
+        <h2><span class="lang-zh">品牌</span><span class="lang-en">Brand</span></h2>
+        <p>
+          <span class="lang-zh">Hooto于2024年落地生根，名称来源于初创团队的家乡方言——吴语——“花头精”一词的音译。旨在从不同艺术角度出发，通过将姑苏文化与国际视野结合的方式解读“花花世界”，将主创团队从少年时期便建立的深厚羁绊，化作脚踏实地的动力。从设计青少年艺术文化教育、打造特色文创产品等形式，为创作注入多元色彩与文化温度，助推下一代的文化认同与自我探索。</span>
+          <span class="lang-en">Hooto took root in 2024. Its name derives from the transliteration of the Wu dialect term "花头精" from the founding team's hometown. We aim to interpret the "colorful world" from diverse artistic perspectives by combining Suzhou culture with an international outlook, transforming the profound bond formed in our youth into tangible motivation. Through designing youth-focused art and cultural education programs and creating distinctive cultural and creative products, we inject diverse color and cultural warmth into our creations, fostering the next generation's cultural identity and self-discovery.</span>
+        </p>
+      </div>
+
+      <div class="brand-subsection">
+        <h3><span class="lang-zh">亮点</span><span class="lang-en">Highlights</span></h3>
+                <h4><span class="lang-zh">时效性</span><span class="lang-en">Timeliness</span></h4>
+        <p>
+          <span class="lang-zh">团队本身00后的身份，具有高度的文化敏感度与媒介判断力。我们的美术与内容组对流行趋势具备天然嗅觉，能够迅速对网络焦点的变化做出反应，并以恰当艺术形式转化为视觉成果，精准触达受众群体。</span>
+          <span class="lang-en">As members of the '00s generation, our team possesses high cultural sensitivity and media discernment. Our art and content teams have a natural instinct for trends, responding rapidly to shifts in online focus and transforming them into visual outcomes in fitting artistic forms, accurately reaching our audience.</span>
+        </p>
+                <h4><span class="lang-zh">朋辈教育</span><span class="lang-en">Peer Education</span></h4>
+        <p>
+          <span class="lang-zh">团队导师涵盖体制内外多样背景，善于用真实经历共情青少年心理。在课程中，我们更像"过来人"而非"说教者"，有效化解师生之间的代际距离，让学生更自然地接受思考引导与价值共鸣。</span>
+          <span class="lang-en">Our mentors come from diverse backgrounds inside and outside institutional settings, adept at empathizing with youth psychology through real-life experiences. In our courses, we act more as "those who have been through it" rather than "preachers," effectively bridging the generational gap between teachers and students, allowing learners to naturally embrace guided thinking and shared values.</span>
+        </p>
+                <h4><span class="lang-zh">国际视野 & 专业性</span><span class="lang-en">Global Vision & Professionalism</span></h4>
+        <p>
+          <span class="lang-zh">团队成员来自全球多所顶尖综合类高校和艺术院校，涵盖插画、平面设计、建筑、工程等多个领域。我们具备扎实的专业基础与审美执行力，能够满足绝大部分市场需求的艺术形式。</span>
+          <span class="lang-en">Our team members hail from top comprehensive and art institutions worldwide, covering fields such as illustration, graphic design, architecture, and engineering. We boast a solid professional foundation and aesthetic execution capability, capable of meeting most market demands for artistic forms.</span>
+        </p>
+      </div>
+
+      <div class="brand-subsection">
+        <h3><span class="lang-zh">服务</span><span class="lang-en">Services</span></h3>
+        <ul class="services-list">
+          <li><span class="lang-zh">孵化专属艺术IP形象，设计文创产品</span><span class="lang-en">Incubate unique art IPs and design cultural products</span></li>
+          <li><span class="lang-zh">青少年美育教培课程设计</span><span class="lang-en">Design art education programs for youth</span></li>
+          <li><span class="lang-zh">项目式课程（展览、工作坊）</span><span class="lang-en">Project-based courses (exhibitions, workshops)</span></li>
+          <li><span class="lang-zh">多媒介艺术融合课程</span><span class="lang-en">Multi-media art integration courses</span></li>
+          <li><span class="lang-zh">校企合作课程共建</span><span class="lang-en">Co-create courses with schools and organizations</span></li>
+        </ul>
+      </div>
+
+      <div class="brand-subsection">
+        <h3><span class="lang-zh">理念</span><span class="lang-en">Philosophy</span></h3>
+        <ul class="philosophy-list">
+          <li><span class="lang-zh">多元表达：倡导多样艺术形式，赋予产品独特精神内涵。</span><span class="lang-en">Diverse Expression: Embrace varied art forms to imbue products with unique spirit.</span></li>
+          <li><span class="lang-zh">重塑日常：从生活中汲取灵感，将平凡转化为艺术品。</span><span class="lang-en">Reinventing the Everyday: Draw inspiration from daily life, transforming the mundane into art.</span></li>
+          <li><span class="lang-zh">意料之外：通过巧思和细节，为用户带来惊喜体验。</span><span class="lang-en">Unexpected Delight: Use clever details to delight users.</span></li>
+          <li><span class="lang-zh">生活美学：将艺术融入生活，增添美学温度。</span><span class="lang-en">Aesthetics in Life: Integrate art into daily life for added beauty.</span></li>
+          <li><span class="lang-zh">功能美感：兼顾视觉效果与实用便利。</span><span class="lang-en">Functional Beauty: Balance aesthetics with usability.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Summer Courses Section -->
+    <section id="summer-courses" class="fade-in">
+      <div class="section-content">
+        <h2 class="section-title">
+          <span class="lang-zh">暑期课程</span>
+          <span class="lang-en">Summer Courses</span>
+        </h2>
+        <div class="content-grid">
+          <div class="text-content">
+            <p class="section-description">
+              <span class="lang-zh">我们为12-15岁青少年设计了为期七天的跨学科综合能力提升课程，涵盖艺术、工程、经济等领域。通过创新的认知训练与实践创作，帮助学生拓展思维边界，拥有广阔的视野和多元的能力。</span>
+              <span class="lang-en">We design a seven-day interdisciplinary comprehensive ability enhancement course for teenagers aged 12-15, covering art, engineering, economics and other fields. Through innovative cognitive training and practical creation, we help students expand their thinking boundaries and develop broad vision and diverse abilities.</span>
+            </p>
+            <div class="action-buttons">
+              <a href="javascript:void(0)" onclick="openSubpage('sub/summer.html')" class="btn-primary">
+                <span class="lang-zh">了解更多</span>
+                <span class="lang-en">Learn More</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-content">
+            <img src="sub/summer.jpg" alt="Summer Courses" class="section-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IP & Cultural Products Section -->
+    <section id="ip-products" class="fade-in">
+      <div class="section-content">
+        <h2 class="section-title">
+          <span class="lang-zh">IP与文创产品</span>
+          <span class="lang-en">IP & Cultural Products</span>
+        </h2>
+        <div class="content-grid reverse">
+          <div class="image-content">
+            <img src="sub/ip.png" alt="IP & Cultural Products" class="section-image">
+          </div>
+          <div class="text-content">
+            <p class="section-description">
+              <span class="lang-zh">我们专注于孵化专属艺术IP形象，设计独特的文创产品。通过多元表达、重塑日常、意料之外的设计理念，将艺术融入生活，为用户带来惊喜体验。</span>
+              <span class="lang-en">We focus on incubating exclusive art IP images and designing unique cultural and creative products. Through our design philosophy of diverse expression, reinventing the everyday, and unexpected delight, we integrate art into life and bring surprising experiences to users.</span>
+            </p>
+            <div class="action-buttons">
+              <a href="javascript:void(0)" onclick="openSubpage('sub/ip.html')" class="btn-primary">
+                <span class="lang-zh">了解更多</span>
+                <span class="lang-en">Learn More</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+      <h2><span class="lang-zh">联系我们</span><span class="lang-en">Contact Us</span></h2>
+      <p>
+        <span class="lang-zh">如果您对我们的服务感兴趣，或者想要了解更多关于HOOTO花头精的信息，欢迎随时联系我们。我们期待与您建立合作关系，共同创造美好的艺术体验。</span>
+        <span class="lang-en">If you're interested in our services or would like to learn more about HOOTO, please don't hesitate to contact us. We look forward to establishing a partnership and creating wonderful artistic experiences together.</span>
+      </p>
+      
+      <div style="margin-top: 2rem; padding: 2rem; background: var(--light-orange); border-radius: 15px; text-align: center;">
+        <h3 style="color: var(--primary-orange); margin-bottom: 1rem;">
+          <span class="lang-zh">联系方式</span>
+          <span class="lang-en">Contact Information</span>
+        </h3>
+        
+        <h4 style="color: var(--dark-orange); margin-bottom: 1.5rem; font-size: 1.2rem; font-weight: 600;">
+          <span class="lang-zh">欢迎您的加入与合作</span>
+          <span class="lang-en">Welcome to Join and Collaborate</span>
+        </h4>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+          <div style="background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h5 style="color: var(--primary-orange); margin-bottom: 0.5rem; font-weight: 600;">
+              <span class="lang-zh">邮箱</span>
+              <span class="lang-en">Email</span>
+            </h5>
+            <p style="color: var(--dark-gray); font-weight: 500;">Hooto0601@outlook.com</p>
+          </div>
+          
+          <div style="background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h5 style="color: var(--primary-orange); margin-bottom: 0.5rem; font-weight: 600;">
+              <span class="lang-zh">电话</span>
+              <span class="lang-en">Phone</span>
+            </h5>
+            <p style="color: var(--dark-gray); font-weight: 500;">+86 123 4567 8900</p>
+          </div>
+          
+          <div style="background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h5 style="color: var(--primary-orange); margin-bottom: 0.5rem; font-weight: 600;">
+              <span class="lang-zh">微信公众号</span>
+              <span class="lang-en">WeChat Official Account</span>
+            </h5>
+            <p style="color: var(--dark-gray); font-weight: 500;">Hooto花头精</p>
+          </div>
+          
+          <div style="background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h5 style="color: var(--primary-orange); margin-bottom: 0.5rem; font-weight: 600;">
+              <span class="lang-zh">小红书</span>
+              <span class="lang-en">Xiaohongshu</span>
+            </h5>
+            <p style="color: var(--dark-gray); font-weight: 500;">4167289334</p>
+            <p style="color: var(--dark-gray); font-weight: 500;">26548446360</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Floating Contact Form -->
+  <div class="contact-toggle" onclick="toggleContactForm()">
+    <span class="lang-zh">✉</span>
+    <span class="lang-en">✉</span>
+  </div>
+
+  <div class="floating-contact" id="contactForm">
+    <div class="contact-header">
+      <h3>
+        <span class="lang-zh">联系我们</span>
+        <span class="lang-en">Contact Us</span>
+      </h3>
+      <button class="close-btn" onclick="toggleContactForm()">×</button>
+    </div>
+    
+    <form class="contact-form" id="contactFormElement" onsubmit="submitContactForm(event)">
+      <div class="form-group">
+        <label for="name">
+          <span class="lang-zh">姓名</span>
+          <span class="lang-en">Name</span>
+        </label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">
+          <span class="lang-zh">邮箱</span>
+          <span class="lang-en">Email</span>
+        </label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">
+          <span class="lang-zh">留言内容</span>
+          <span class="lang-en">Message</span>
+        </label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="lang-zh">发送</span>
+        <span class="lang-en">Send</span>
+      </button>
+      
+      <div class="success-message" id="successMessage">
+        <span class="lang-zh">消息发送成功！我们会尽快回复您。</span>
+        <span class="lang-en">Message sent successfully! We'll get back to you soon.</span>
+      </div>
+      
+      <div class="error-message" id="errorMessage">
+        <span class="lang-zh">发送失败，请稍后重试。</span>
+        <span class="lang-en">Failed to send. Please try again later.</span>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Language Toggle Functionality
+    document.getElementById('toggleLang').addEventListener('click', function() {
+      const html = document.documentElement;
+      if (html.classList.contains('lang-zh')) {
+        html.classList.remove('lang-zh');
+        html.classList.add('lang-en');
+      } else {
+        html.classList.remove('lang-en');
+        html.classList.add('lang-zh');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add hover effects to scroll items
+    document.querySelectorAll('.scroll-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Carousel functionality
+    const carouselInner = document.getElementById('carouselInner');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    let currentSlide = 0;
+    let autoPlayInterval;
+
+    function showSlide(slideIndex) {
+      currentSlide = slideIndex;
+      carouselInner.style.transform = `translateX(-${slideIndex * 33.333}%)`;
+      
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === slideIndex);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % 3;
+      showSlide(currentSlide);
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlayInterval);
+    }
+
+    // Add click event to indicators
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        showSlide(index);
+        stopAutoPlay();
+        startAutoPlay(); // Restart auto play
+      });
+    });
+
+    // Pause auto play on hover
+    carouselInner.addEventListener('mouseenter', stopAutoPlay);
+    carouselInner.addEventListener('mouseleave', startAutoPlay);
+
+    // Start auto play
+    startAutoPlay();
+
+    // Function to open subpages with language parameter
+    function openSubpage(url) {
+      const currentLang = document.documentElement.classList.contains('lang-zh') ? 'zh' : 'en';
+      const separator = url.includes('?') ? '&' : '?';
+      const fullUrl = currentLang === 'en' ? `${url}${separator}lang=en` : url;
+      window.location.href = fullUrl;
+    }
+
+    // Contact Form Functions
+    function toggleContactForm() {
+      const form = document.getElementById('contactForm');
+      form.classList.toggle('open');
+    }
+
+    function submitContactForm(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+      const form = document.getElementById('contactFormElement');
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="lang-zh">发送中...</span><span class="lang-en">Sending...</span>';
+      
+      // Get form data
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const message = formData.get('message');
+      
+      // Create email content
+      const subject = 'New Contact Form Submission from ' + name;
+      const body = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+      
+      // Create mailto link
+      const mailtoLink = `mailto:Hooto0601@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      setTimeout(() => {
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        
+        // Reset form
+        form.reset();
+        
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="lang-zh">发送</span><span class="lang-en">Send</span>';
+        
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
