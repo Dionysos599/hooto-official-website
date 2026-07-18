@@ -25,4 +25,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           force_orphan: true
+          exclude_assets: '.github,CNAME'
           commit_message: Deploy website
