@@ -1066,7 +1066,7 @@
       const currentLang = document.documentElement.classList.contains('lang-zh') ? 'zh' : 'en';
       const separator = url.includes('?') ? '&' : '?';
       const fullUrl = currentLang === 'en' ? `${url}${separator}lang=en` : url;
-      window.open(fullUrl, '_blank');
+      window.location.href = fullUrl;
     }
 
     // Contact Form Functions
