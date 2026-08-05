@@ -14,6 +14,7 @@
   const projectSteps = [...document.querySelectorAll("[data-project-step]")];
 
   function updateProjectMeta(step) {
+    if (!projectName || !projectTags || !projectYear || !projectLink) return;
     const displayName = step.dataset.nameZh;
     projectName.textContent = displayName;
     projectTags.textContent = step.dataset.tagsZh;
@@ -79,7 +80,7 @@
 
   function initializeReveal() {
     const targets = document.querySelectorAll(
-      ".statement-copy, .metrics > div, .service-list article, .contact-details > div"
+      ".mission-title-block, .mission-copy, .about-page-copy, .about-page-contact, .about-contact-row, .gallery-card"
     );
 
     targets.forEach((target) => target.setAttribute("data-reveal", ""));
@@ -101,9 +102,56 @@
     targets.forEach((target) => observer.observe(target));
   }
 
+  function initializeStoreModal() {
+    const modal = document.querySelector("[data-store-modal]");
+    const openers = document.querySelectorAll("[data-store-open]");
+    const closeButton = document.querySelector("[data-store-close]");
+    if (!modal) return;
+
+    const openModal = () => {
+      if (!modal.open) modal.showModal();
+    };
+
+    openers.forEach((opener) => opener.addEventListener("click", openModal));
+    closeButton?.addEventListener("click", () => modal.close());
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.close();
+    });
+
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("store") === "1") {
+      openModal();
+      url.searchParams.delete("store");
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    }
+  }
+
+  function initializeGalleryLightbox() {
+    const modal = document.querySelector("[data-gallery-lightbox]");
+    const modalImage = modal?.querySelector("img");
+    const closeButton = document.querySelector("[data-gallery-close]");
+    const triggers = document.querySelectorAll("[data-gallery-image]");
+    if (!modal || !modalImage) return;
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        modalImage.src = trigger.dataset.galleryImage;
+        modalImage.alt = trigger.querySelector("img")?.alt || "HOOTO 作品";
+        modal.showModal();
+      });
+    });
+
+    closeButton?.addEventListener("click", () => modal.close());
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.close();
+    });
+  }
+
   root.classList.remove("lang-en");
   root.classList.add("lang-zh");
   root.lang = "zh-CN";
   initializeProjectStory();
   initializeReveal();
+  initializeStoreModal();
+  initializeGalleryLightbox();
 })();
