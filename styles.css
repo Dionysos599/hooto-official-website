@@ -1497,16 +1497,94 @@ a.about-contact-row:hover {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --mobile-header-height: 57px;
+    --mobile-action-width: 142px;
+  }
+
   .site-header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 10px;
+    min-height: var(--mobile-header-height);
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .site-nav-shell {
+    justify-self: stretch;
+    width: 100%;
+    margin-left: 0;
   }
 
   .site-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    font-size: 11px;
+  }
+
+  .site-nav a {
+    min-width: 0;
+    padding: 12px 2px;
+    white-space: nowrap;
+  }
+
+  .site-nav a::after {
+    right: 7px;
+    bottom: 5px;
+    left: 7px;
+    width: auto;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .header-actions .pill-button--dark {
     display: none;
   }
 
   .detailed-header {
-    display: none;
+    top: var(--mobile-header-height);
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) var(--mobile-action-width);
+    column-gap: 10px;
+    max-height: calc(100svh - var(--mobile-header-height));
+    padding: 8px var(--page-padding) 20px;
+    overflow-y: auto;
+  }
+
+  .detailed-header-grid {
+    grid-column: 2;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    margin: 4px 0 0;
+    gap: 20px 0;
+  }
+
+  .detailed-header-column {
+    align-items: center;
+    gap: 8px;
+    padding: 0 6px;
+    text-align: center;
+  }
+
+  .detailed-header-column a {
+    max-width: none;
+    font-size: 12px;
+  }
+
+  .site-header.is-mobile-nav-open .detailed-header {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .projects,
+  .about-page,
+  .online-gallery,
+  .statement {
+    scroll-margin-top: var(--mobile-header-height);
   }
 
   .hero-heading-wrap,
@@ -1573,23 +1651,27 @@ a.about-contact-row:hover {
   }
 
   .project-story {
+    --mobile-stage-height: min(42svh, 360px);
     display: block;
   }
 
   .project-stage {
-    z-index: 3;
-    height: 68svh;
+    z-index: 5;
+    top: var(--mobile-header-height);
+    height: var(--mobile-stage-height);
+    margin-bottom: calc(var(--mobile-stage-height) * -1);
   }
 
   .project-steps {
     position: relative;
     z-index: 4;
-    margin-top: 0;
+    background: transparent;
   }
 
   .project-step {
-    min-height: 72svh;
-    background: rgba(236, 235, 230, 0.96);
+    min-height: max(78svh, calc(var(--mobile-stage-height) + 48svh));
+    padding-top: calc(var(--mobile-stage-height) + 8svh);
+    background: rgba(236, 235, 230, 0.98);
   }
 
   .step-number {
@@ -1643,6 +1725,14 @@ a.about-contact-row:hover {
     gap: 5px;
   }
 
+  .site-header {
+    gap: 8px;
+  }
+
+  :root {
+    --mobile-action-width: 42px;
+  }
+
   .pill-button > span:last-child {
     display: none;
   }
@@ -1659,6 +1749,14 @@ a.about-contact-row:hover {
   .pill-button--store .lang-zh::after {
     content: "商店";
     font-size: 9px;
+  }
+
+  .detailed-header {
+    column-gap: 8px;
+  }
+
+  .detailed-header-column a {
+    font-size: 10px;
   }
 
   .hero {
@@ -1749,7 +1847,7 @@ a.about-contact-row:hover {
   }
 
   .project-stage {
-    height: 60svh;
+    height: var(--mobile-stage-height);
   }
 
   .project-frame {
@@ -1770,8 +1868,8 @@ a.about-contact-row:hover {
   }
 
   .project-step {
-    min-height: 67svh;
-    padding: 10vh var(--page-padding);
+    min-height: max(76svh, calc(var(--mobile-stage-height) + 44svh));
+    padding: calc(var(--mobile-stage-height) + 7svh) var(--page-padding) 10vh;
   }
 
   .service-list article {
