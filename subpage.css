@@ -151,6 +151,209 @@ img {
   text-transform: uppercase;
 }
 
+/* Art education: compact overview page */
+.art-education-page main {
+  padding-top: 58px;
+}
+
+.art-course-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(318px, 42vw, 550px);
+  overflow: hidden;
+  color: var(--white);
+  background: #262522;
+}
+
+.art-course-hero-image,
+.art-course-hero-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.art-course-hero-image {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 54%;
+}
+
+.art-course-hero-overlay {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.12) 66%), linear-gradient(0deg, rgba(0, 0, 0, 0.46), transparent 54%);
+}
+
+.art-course-hero-content {
+  position: relative;
+  min-height: inherit;
+  padding: clamp(20px, 2.4vw, 34px) var(--page-padding) 24px;
+}
+
+.art-course-title {
+  position: absolute;
+  bottom: clamp(30px, 3vw, 50px);
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - var(--page-padding) * 2);
+  font-size: clamp(68px, 12.6vw, 172px);
+  font-weight: 700;
+  line-height: 0.84;
+  letter-spacing: 0.1em;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.art-course-hero-footer {
+  position: absolute;
+  right: var(--page-padding);
+  bottom: clamp(122px, 15vw, 210px);
+  left: var(--page-padding);
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 0.42fr);
+  align-items: end;
+  gap: 32px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.art-course-hero-footer p {
+  max-width: 390px;
+  justify-self: end;
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 400;
+  line-height: 1.45;
+  text-transform: none;
+}
+
+.art-course-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 3vw, 42px);
+  padding: clamp(34px, 5vw, 72px) var(--page-padding) clamp(12px, 2vw, 28px);
+}
+
+.art-course-card {
+  position: relative;
+  min-height: clamp(220px, 30vw, 400px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(18px, 2.2vw, 32px);
+  color: var(--white);
+  background-color: #6e88bd;
+  background-image: linear-gradient(rgba(35, 45, 68, 0.38), rgba(35, 45, 68, 0.58)), url("sub2/course/workshop-course-11.jpg");
+  background-position: center;
+  background-size: cover;
+  transition: transform 300ms ease, background-color 300ms ease;
+}
+
+.art-course-card--workshop {
+  background-color: #7089bc;
+  background-image: linear-gradient(rgba(35, 45, 68, 0.38), rgba(35, 45, 68, 0.58)), url("sub2/opening/workshop-opening-02.jpg");
+}
+
+.art-course-card:hover,
+.art-course-card:focus-visible {
+  background-color: #5f79af;
+  transform: translateY(-5px);
+}
+
+.art-course-card-index,
+.art-course-card-label,
+.art-course-card-action {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.art-course-card-label {
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.art-course-card strong {
+  margin-top: 8px;
+  font-size: clamp(32px, 5.2vw, 80px);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -0.075em;
+}
+
+.art-course-card-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.art-course-statements {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 3vw, 42px);
+  padding: clamp(6px, 1vw, 14px) var(--page-padding) clamp(1px, 0.1vw, 2px);
+  border-top: 1px solid var(--line);
+}
+
+.art-course-statement-card {
+  min-height: clamp(240px, 25vw, 350px);
+  display: flex;
+  flex-direction: column;
+}
+
+.art-course-statement-copy {
+  margin-top: clamp(30px, 4vw, 62px);
+  font-size: clamp(18px, 2.1vw, 30px);
+  line-height: 1.48;
+  letter-spacing: -0.035em;
+}
+
+.student-showcase-link {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(50px, 9vw, 64px);
+  padding: 12px 20px;
+  border-radius: 999px;
+  color: var(--white);
+  background: var(--accent);
+  font-size: clamp(16px, 1.6vw, 23px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transition: transform 250ms ease, background-color 250ms ease;
+}
+
+.student-showcase-link:hover,
+.student-showcase-link:focus-visible {
+  background: #804934;
+  transform: translateX(7px);
+}
+
+.case-project-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 18px var(--page-padding);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.case-project-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#student-showcase {
+  scroll-margin-top: 78px;
+}
+
 /* Hero */
 .case-hero {
   position: relative;
@@ -792,6 +995,44 @@ img {
 
   .next-case {
     min-height: 65svh;
+  }
+
+  .art-course-hero {
+    min-height: 318px;
+  }
+
+  .art-course-hero-content {
+    padding-top: 18px;
+  }
+
+  .art-course-hero-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    bottom: 122px;
+  }
+
+  .art-course-hero-footer p {
+    justify-self: start;
+  }
+
+  .art-course-statement-copy {
+    font-size: clamp(15px, 3.5vw, 22px);
+  }
+
+  .case-project-nav {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media (max-width: 430px) {
+  .art-course-links,
+  .art-course-statements {
+    grid-template-columns: 1fr;
+  }
+
+  .art-course-card {
+    min-height: 250px;
   }
 }
 
