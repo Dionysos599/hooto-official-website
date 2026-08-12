@@ -32,6 +32,8 @@
 
     document.querySelectorAll("[data-lightbox-image]").forEach((image) => {
       image.addEventListener("click", () => {
+        const carouselSlide = image.closest("[data-ip-slide]");
+        if (carouselSlide && carouselSlide.dataset.position !== "0") return;
         lightboxImage.src = image.currentSrc || image.src;
         lightboxImage.alt = image.alt;
         lightbox.showModal();
