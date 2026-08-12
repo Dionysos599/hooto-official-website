@@ -9,57 +9,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/lenis.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-header.css">
+  <script src="vendor/lenis.min.js" defer></script>
+  <script src="smooth-scroll.js" defer></script>
+  <script src="site-header.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="page-noise" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="brand-mark brand-mark--image" href="#top" aria-label="HOOTO 首页">
-      <img src="image/896b3e9d-da7a-4a27-b4e6-cb7eeed55f71.jpg" alt="HOOTO 花头精">
-    </a>
-
-    <div class="site-nav-shell">
-      <nav class="site-nav" aria-label="主导航">
-        <a href="#about" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
-        <a href="#projects" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">项目</span><span class="lang-en">Projects</span></a>
-        <a href="#mission" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">社会使命</span><span class="lang-en">Social Mission</span></a>
-        <a href="sub/ip.html" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">线上画廊</span><span class="lang-en">Online Gallery</span></a>
-      </nav>
-
-      <div class="detailed-header" id="detailed-nav" aria-label="详细导航">
-        <div class="detailed-header-grid">
-          <div class="detailed-header-column">
-            <a href="#about"><span class="lang-zh">联系方式</span><span class="lang-en">Contact</span></a>
-          </div>
-          <div class="detailed-header-column">
-            <a href="sub/summer.html"><span class="lang-zh">美育课程</span><span class="lang-en">Art Education</span></a>
-            <a href="sub/ip.html"><span class="lang-zh">文创IP</span><span class="lang-en">Cultural IP</span></a>
-            <a href="sub/technology.html"><span class="lang-zh">科技探索</span><span class="lang-en">Tech Exploration</span></a>
-          </div>
-          <div class="detailed-header-column">
-            <a href="sub/collaboration.html"><span class="lang-zh">公益实践</span><span class="lang-en">Community Practice</span></a>
-          </div>
-          <div class="detailed-header-column">
-            <a href="sub/ip.html"><span class="lang-zh">文创IP</span><span class="lang-en">Cultural IP</span></a>
-            <a href="sub/ip.html"><span class="lang-zh">学生成果展</span><span class="lang-en">Student Showcase</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="header-actions">
-      <button class="pill-button pill-button--store" type="button" data-store-open>
-        <span class="lang-zh">Hooto商店</span><span class="lang-en">Hooto Store</span>
-        <span aria-hidden="true">↗</span>
-      </button>
-      <a class="pill-button pill-button--dark" href="#about">
-        <span class="lang-zh">开始合作</span><span class="lang-en">Start a project</span>
-        <span aria-hidden="true">↗</span>
-      </a>
-    </div>
-  </header>
+  <header class="site-header" data-site-header data-variant="home" data-root="."></header>
 
   <main id="top">
     <section class="hero" id="intro" aria-labelledby="hero-title">
@@ -72,7 +33,7 @@
         <h1 id="hero-title"><span>Hooto</span></h1>
         <div class="hero-intro">
           <p class="hero-intro-lead">
-            <span class="lang-zh">从成长现场出发，让艺术成为表达、链接和创造的方式。</span>
+            <span class="lang-zh">从成长现场出发，<br> 让艺术成为表达、链接和创造的方式。</span>
             <span class="lang-en">Art as a way to express, connect and create.</span>
           </p>
           <p class="hero-about-copy">
@@ -119,11 +80,11 @@
           <article class="project-step is-active"
             data-project-step
             data-image="sub/summer.jpg"
-            data-name-zh="美育课程"
-            data-name-en="ART EDUCATION"
-            data-tags-zh="美育 / 工作坊 / 展览"
-            data-tags-en="EDUCATION / WORKSHOP / EXHIBITION"
-            data-year="2025"
+            data-name-zh="EDUCATION"
+            data-name-en="EDUCATION"
+            data-tags-zh="WORKSHOP"
+            data-tags-en="WORKSHOP"
+            data-year="EXIBITION"
             data-link="sub/summer.html">
             <span class="step-number">01 / ART EDUCATION</span>
             <h3><span class="lang-zh">美育课程</span><span class="lang-en">Art Education</span></h3>
@@ -137,14 +98,14 @@
           <article class="project-step"
             data-project-step
             data-image="sub/ip.png"
-            data-name-zh="文创IP"
-            data-name-en="CULTURAL IP"
-            data-tags-zh="角色 / 文创 / 日常物件"
-            data-tags-en="CHARACTER / CULTURAL PRODUCTS"
-            data-year="2024"
+            data-name-zh="CHARACTER"
+            data-name-en="CHARACTER"
+            data-tags-zh="STORY"
+            data-tags-en="STORY"
+            data-year="CULTURAL PRODUCTS"
             data-link="sub/ip.html">
-            <span class="step-number">02 / CULTURAL IP</span>
-            <h3><span class="lang-zh">文创IP</span><span class="lang-en">Cultural IP</span></h3>
+            <span class="step-number">02 / CULTURAL PRODUCTS</span>
+            <h3 class="project-step-title--ip"><span class="lang-zh">文创 I P</span><span class="lang-en">Cultural IP</span></h3>
             <p class="lang-zh">从一张线稿，到一个角色世界。</p>
             <p class="lang-en">A playful character world extending into bags, pins, stickers and everyday objects.</p>
             <div class="step-actions">
@@ -155,11 +116,11 @@
           <article class="project-step"
             data-project-step
             data-image="sub3/works/next-workshop-poster-green.png"
-            data-name-zh="科技探索"
-            data-name-en="TECH EXPLORATION"
-            data-tags-zh="工程 / 新媒介 / 跨学科"
-            data-tags-en="ENGINEERING / NEW MEDIA / STEAM"
-            data-year="NEXT"
+            data-name-zh="TECHNOLOGY"
+            data-name-en="TECHNOLOGY"
+            data-tags-zh="AI"
+            data-tags-en="AI"
+            data-year="COMMUNICATION"
             data-link="sub/technology.html">
             <span class="step-number">03 / TECH EXPLORATION</span>
             <h3><span class="lang-zh">科技探索</span><span class="lang-en">Tech Exploration</span></h3>
@@ -230,9 +191,15 @@
           <h3 id="contact-title"><span class="lang-zh">有一个好点子？一起把它做出来。</span><span class="lang-en">Have an idea? Let’s make it real.</span></h3>
           <div class="about-contact-list">
             <a class="about-contact-row" href="mailto:Huatoujing0601@outlook.com"><span>01</span><span><span class="lang-zh">邮箱</span><span class="lang-en">Email</span></span><strong>Huatoujing0601@outlook.com</strong><i>↗</i></a>
-            <a class="about-contact-row" href="https://xhslink.cn/m/G2H8N3PURw" target="_blank" rel="noopener noreferrer"><span>02</span><span><span class="lang-zh">小红书</span><span class="lang-en">RED</span></span><strong>花头精HOOTO青年艺术教育</strong><img class="contact-qr" src="image/xiaohongshu-qr.jpg" alt="花头精HOOTO青年艺术教育小红书二维码"></a>
-            <div class="about-contact-row"><span>03</span><span><span class="lang-zh">公众号</span><span class="lang-en">WeChat Official</span></span><strong>花头精Hooto</strong><img class="contact-qr" src="image/wechat-official-qr.jpg" alt="花头精Hooto微信公众号二维码"></div>
-            <div class="about-contact-row"><span>04</span><span><span class="lang-zh">微信</span><span class="lang-en">WeChat</span></span><strong>bscwty</strong><img class="contact-qr" src="image/wechat-personal-qr.png" alt="微信号bscwty二维码"></div>
+            <div class="about-contact-row">
+              <a class="about-contact-row-link" href="https://xhslink.cn/m/G2H8N3PURw" target="_blank" rel="noopener noreferrer" aria-label="打开小红书：花头精HOOTO青年艺术教育"></a>
+              <span>02</span>
+              <span><span class="lang-zh">小红书</span><span class="lang-en">RED</span></span>
+              <strong>花头精HOOTO青年艺术教育</strong>
+              <button class="contact-qr-trigger" type="button" data-qr-open aria-label="查看小红书二维码"><img class="contact-qr" src="image/xiaohongshu-qr.jpg" alt="花头精HOOTO青年艺术教育小红书二维码"></button>
+            </div>
+            <div class="about-contact-row"><span>03</span><span><span class="lang-zh">公众号</span><span class="lang-en">WeChat Official</span></span><strong>花头精Hooto</strong><button class="contact-qr-trigger" type="button" data-qr-open aria-label="查看公众号二维码"><img class="contact-qr" src="image/wechat-official-qr.jpg" alt="花头精Hooto微信公众号二维码"></button></div>
+            <div class="about-contact-row"><span>04</span><span><span class="lang-zh">微信</span><span class="lang-en">WeChat</span></span><strong>ID: bscwty</strong><button class="contact-qr-trigger" type="button" data-qr-open aria-label="查看微信二维码"><img class="contact-qr" src="image/wechat-personal-qr.png" alt="微信号bscwty二维码"></button></div>
           </div>
         </section>
       </div>
@@ -250,6 +217,11 @@
     <div class="store-logo"><img src="image/mini-program-qr.png" alt="HOOTO 小程序二维码"></div>
     <p id="store-modal-title">Coming Soon</p>
     <span>HOOTO STORE · SUZHOU</span>
+  </dialog>
+
+  <dialog class="store-modal store-modal--qr" data-qr-modal aria-label="二维码预览">
+    <button class="modal-close" type="button" data-qr-close aria-label="关闭二维码预览">×</button>
+    <div class="store-logo"><img data-qr-image alt=""></div>
   </dialog>
 </body>
 </html>
