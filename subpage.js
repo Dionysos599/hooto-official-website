@@ -44,6 +44,49 @@
     });
   }
 
+  function initializeQrModal() {
+    const modal = document.querySelector("[data-qr-modal]");
+    const modalImage = modal?.querySelector("[data-qr-image]");
+    const closeButton = document.querySelector("[data-qr-close]");
+    const triggers = document.querySelectorAll("[data-qr-open]");
+    if (!modal || !modalImage) return;
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const image = trigger.querySelector("img");
+        if (!image) return;
+        modalImage.src = image.currentSrc || image.src;
+        modalImage.alt = image.alt;
+        if (!modal.open) modal.showModal();
+      });
+    });
+
+    closeButton?.addEventListener("click", () => modal.close());
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.close();
+    });
+  }
+
+  function initializeStoreModal() {
+    const modal = document.querySelector("[data-store-modal]");
+    const openers = document.querySelectorAll("[data-store-open]");
+    const closeButton = document.querySelector("[data-store-close]");
+    if (!modal) return;
+
+    openers.forEach((opener) => {
+      opener.addEventListener("click", () => {
+        if (!modal.open) modal.showModal();
+      });
+    });
+
+    closeButton?.addEventListener("click", () => modal.close());
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.close();
+    });
+  }
+
   function initializeImageFallbacks() {
     const fallback = document.body.dataset.fallbackImage;
     if (!fallback) return;
@@ -66,4 +109,6 @@
   initializeImageFallbacks();
   initializeReveal();
   initializeLightbox();
+  initializeQrModal();
+  initializeStoreModal();
 })();
