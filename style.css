@@ -466,7 +466,7 @@ img {
   position: absolute;
   z-index: -2;
   inset: -40px;
-  background-image: var(--project-image, url("sub/ip.png"));
+  background-image: var(--project-image, url("assets/images/project-covers/ip.png"));
   background-position: center;
   background-size: cover;
   filter: blur(18px) saturate(0.55) brightness(0.52);

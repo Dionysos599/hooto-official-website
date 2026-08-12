@@ -118,19 +118,13 @@
   background: rgba(236, 235, 230, 0.92);
 }
 
-.detailed-header::before {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  height: 1px;
-  content: "";
-  background: rgba(17, 17, 15, 0.1);
-}
-
-.site-header:hover .detailed-header,
-.site-header:focus-within .detailed-header {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .site-header:hover .detailed-header,
+  .site-header:focus-within .detailed-header {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 }
 
 .detailed-header-grid {
@@ -138,7 +132,7 @@
   z-index: 1;
   justify-self: center;
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 1;
   width: var(--nav-inline-size);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -253,8 +247,13 @@
     display: none;
   }
 
-  .site-header--sub .header-actions .pill-button--dark {
-    display: inline-flex;
+  .site-header--sub {
+    --mobile-action-width: 42px;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+  }
+
+  .site-header--sub .header-actions {
+    width: 42px;
   }
 
   .detailed-header {
@@ -329,14 +328,6 @@
   .pill-button--store .lang-zh::after {
     content: "商店";
     font-size: 9px;
-  }
-
-  .site-header--sub .site-header-back .lang-zh {
-    font-size: 9px;
-  }
-
-  .site-header--sub .site-header-back .lang-zh::after {
-    content: none;
   }
 
   .detailed-header {
