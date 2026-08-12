@@ -7,7 +7,7 @@
 使用项目脚本预览，会自动刷新并持续监听线上画廊的图片目录：
 
 ```bash
-bash scripts/serve-static.sh 8080
+bash tools/serve-static.sh 8080
 ```
 
 然后访问 <http://localhost:8080>。
@@ -17,27 +17,31 @@ bash scripts/serve-static.sh 8080
 ## 目录结构
 
 ```
-index.html          # 首页
-styles.css          # 首页样式
-script.js           # 首页交互（项目滚动叙事等）
+index.html            # 首页
+style.css             # 首页样式
+script.js             # 首页交互
 
-sub/                # 案例子页
-  ip.html             # IP 与文创
-  gallery.html        # 自动读取素材目录的线上画廊
-  summer.html         # 暑期课程
-  technology.html     # 科技探索
-  collaboration.html  # 合作与作品
-subpage.css         # 子页共用样式
-subpage.js          # 子页共用脚本
-gallery.css         # 线上画廊样式
-gallery.js          # 线上画廊分页与图片渲染
-gallery-data.js     # 部署/预览前自动生成的图片清单
-scripts/            # 画廊清单生成与本地预览脚本
+pages/                # 分页面
+  art-education.html
+  cultural-ip.html
+  technology.html
+  community-practice.html
+  gallery.html
+  styles/             # 分页面样式
+  scripts/            # 分页面交互与画廊数据
 
-image/              # 首页图片（Logo 等）
-sub1/               # IP / 文创素材
-sub2/               # 暑期课程素材
-sub3/               # 合作作品素材
+shared/               # 全站共用字体、导航与滚动代码
+assets/               # 所有静态资源
+  images/brand/       # 品牌 Logo 与二维码
+  images/project-covers/
+  images/art-education/
+  images/cultural-ip/
+  images/technology/
+  images/community-practice/
+  fonts/
+  vendor/
+
+tools/                # 画廊清单生成与本地预览脚本
 ```
 
 ## 部署

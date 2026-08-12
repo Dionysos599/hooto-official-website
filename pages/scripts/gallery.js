@@ -13,7 +13,7 @@
 
   function imageAlt(path) {
     const filename = path.split("/").pop() || "HOOTO 画廊作品";
-    return filename.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
+    return filename.replace(/^\d+-/, "").replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
   }
 
   function renderGallery(galleryKey, columnCount) {

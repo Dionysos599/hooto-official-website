@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN" class="lang-zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HOOTO 花头精线上画廊，收录文创 IP 与学生作品。">
+  <title>线上画廊｜HOOTO 花头精</title>
+  <link rel="icon" href="../assets/images/brand/896b3e9d-da7a-4a27-b4e6-cb7eeed55f71.jpg">
+  <link rel="stylesheet" href="../shared/fonts.css">
+  <link rel="stylesheet" href="../assets/vendor/lenis/lenis.css">
+  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../shared/header.css?v=nav-unified-20260812-1">
+  <link rel="stylesheet" href="styles/gallery.css">
+  <script src="../assets/vendor/lenis/lenis.min.js" defer></script>
+  <script src="../shared/smooth-scroll.js" defer></script>
+  <script src="../shared/header.js?v=nav-unified-20260812-1" defer></script>
+  <script src="scripts/gallery-data.js" defer></script>
+  <script src="scripts/gallery.js" defer></script>
+</head>
+<body class="gallery-page">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header site-header--sub" data-site-header data-variant="sub" data-root=".."></header>
+
+  <main id="top">
+    <section class="gallery-intro" aria-labelledby="gallery-title">
+      <div class="gallery-eyebrow"><span>(04)</span><span>ONLINE GALLERY / ARCHIVE</span></div>
+      <h1 id="gallery-title"><span class="lang-zh">线上画廊</span><span class="lang-en">Online Gallery</span></h1>
+
+      <nav class="gallery-tabs" aria-label="画廊分页" role="tablist">
+        <button class="gallery-tab is-active" id="gallery-tab-cultural-ip" type="button" role="tab" aria-selected="true" aria-controls="cultural-ip" data-gallery-tab="culturalIp">
+          <span class="lang-zh">文创IP</span><span class="lang-en">Cultural IP</span>
+        </button>
+        <button class="gallery-tab" id="gallery-tab-student-showcase" type="button" role="tab" aria-selected="false" aria-controls="student-showcase" data-gallery-tab="studentShowcase">
+          <span class="lang-zh">学生成果展</span><span class="lang-en">Student Showcase</span>
+        </button>
+      </nav>
+    </section>
+
+    <section class="gallery-panel" id="cultural-ip" role="tabpanel" aria-labelledby="gallery-tab-cultural-ip" data-gallery-panel="culturalIp">
+      <div class="gallery-grid" data-gallery-grid="culturalIp"></div>
+    </section>
+
+    <section class="gallery-panel" id="student-showcase" role="tabpanel" aria-labelledby="gallery-tab-student-showcase" data-gallery-panel="studentShowcase" hidden>
+      <div class="gallery-grid" data-gallery-grid="studentShowcase"></div>
+    </section>
+
+    <noscript><p class="gallery-empty">请启用 JavaScript 查看线上画廊。</p></noscript>
+  </main>
+
+  <footer class="case-footer"><span>© 2024–2026 HOOTO STUDIO</span><a href="#top"><span class="lang-zh">回到顶部</span><span class="lang-en">Back to top</span> ↑</a></footer>
+</body>
+</html>
