@@ -19,6 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Generate gallery image list
+        run: node scripts/generate-gallery-data.mjs
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
