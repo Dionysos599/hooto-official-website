@@ -8,19 +8,19 @@
   const projectLink = document.querySelector("[data-project-link]");
   const projectName = document.querySelector("[data-project-name]");
   const projectTags = document.querySelector("[data-project-tags]");
-  const projectYear = document.querySelector("[data-project-year]");
+  const projectCategory = document.querySelector("[data-project-category]");
   const projectIndex = document.querySelector("[data-project-index]");
   const marqueeLabels = document.querySelectorAll("[data-project-marquee]");
   const projectSteps = [...document.querySelectorAll("[data-project-step]")];
 
   function updateProjectMeta(step) {
-    if (!projectName || !projectTags || !projectYear || !projectLink) return;
+    if (!projectName || !projectTags || !projectCategory || !projectLink) return;
     const displayName = step.dataset.nameZh;
     projectName.textContent = displayName;
     projectTags.textContent = step.dataset.tagsZh;
-    projectYear.textContent = step.dataset.year;
+    projectCategory.textContent = step.dataset.category;
     projectLink.href = step.dataset.link;
-    projectLink.setAttribute("aria-label", `${displayName} project`);
+    projectLink.setAttribute("aria-label", `查看${displayName}项目`);
     marqueeLabels.forEach((label) => {
       label.textContent = displayName;
     });

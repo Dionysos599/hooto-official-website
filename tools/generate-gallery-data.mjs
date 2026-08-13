@@ -1,11 +1,12 @@
 import { watch } from "node:fs";
-import { readdir, writeFile } from "node:fs/promises";
+import { readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDirectory, "..");
 const outputPath = path.join(projectRoot, "pages/scripts/gallery-data.js");
+const imageManifestPath = path.join(projectRoot, "assets/generated/images/manifest.json");
 const imageExtensions = new Set([".avif", ".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"]);
 const naturalSort = new Intl.Collator("zh-CN", { numeric: true, sensitivity: "base" });
 
@@ -14,7 +15,16 @@ const gallerySources = {
   studentShowcase: "assets/images/art-education/course"
 };
 
-async function collectImages(relativeDirectory) {
+async function loadImageManifest() {
+  try {
+    return JSON.parse(await readFile(imageManifestPath, "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") return {};
+    throw error;
+  }
+}
+
+async function collectImages(relativeDirectory, manifest) {
   const directoryPath = path.join(projectRoot, relativeDirectory);
   const entries = await readdir(directoryPath, { withFileTypes: true });
 
@@ -24,15 +34,19 @@ async function collectImages(relativeDirectory) {
 
   return imageNames
     .sort((left, right) => naturalSort.compare(left, right))
-    .map((name) => path.posix.join(relativeDirectory, name));
+    .map((name) => {
+      const src = path.posix.join(relativeDirectory, name);
+      return manifest[src] || { src, variants: [] };
+    });
 }
 
 async function generateGalleryData() {
+  const manifest = await loadImageManifest();
   const galleryData = Object.fromEntries(
     await Promise.all(
       Object.entries(gallerySources).map(async ([galleryName, relativeDirectory]) => [
         galleryName,
-        await collectImages(relativeDirectory)
+        await collectImages(relativeDirectory, manifest)
       ])
     )
   );
