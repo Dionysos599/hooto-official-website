@@ -46,11 +46,14 @@ jobs:
       - name: Generate SEO discovery files
         run: node tools/generate-seo-files.mjs
 
+      - name: Validate and assemble site artifact
+        run: npm run build:site
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./_site
           force_orphan: true
           exclude_assets: '.github,CNAME'
           commit_message: Deploy website

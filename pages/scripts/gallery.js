@@ -38,9 +38,20 @@
       const variants = Array.isArray(source.variants) ? source.variants : [];
       const figure = document.createElement("figure");
       const image = document.createElement("img");
+      const originalSrc = `../${source.src}`;
 
       figure.className = "gallery-item";
       const largestVariant = variants.at(-1);
+      if (variants.length) {
+        image.addEventListener("error", () => {
+          if (image.dataset.originalFallback === "true") return;
+          image.dataset.originalFallback = "true";
+          image.removeAttribute("srcset");
+          image.removeAttribute("sizes");
+          image.src = originalSrc;
+        });
+      }
+
       image.src = `../${largestVariant?.src || source.src}`;
       if (variants.length) {
         image.srcset = variants.map((variant) => `../${variant.src} ${variant.width}w`).join(", ");

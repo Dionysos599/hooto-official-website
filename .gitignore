@@ -4,3 +4,6 @@ skills/
 
 # Rebuilt locally and in CI from the original, untouched image library.
 assets/generated/
+
+# Disposable GitHub Pages artifact assembled from the complete generated site.
+_site/

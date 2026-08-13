@@ -56,4 +56,14 @@ tools/                # 画廊清单生成与本地预览脚本
 
 ## 部署
 
-推送到 `master` 后，GitHub Actions（`.github/workflows/deploy-gh-pages.yml`）会自动发布到 `gh-pages` 分支。
+推送到 `master` 后，GitHub Actions（`.github/workflows/deploy-gh-pages.yml`）会生成响应式 WebP 图片和画廊清单，验证所有衍生图片引用，再把独立的 `_site` 构建目录发布到 `gh-pages` 分支。
+
+如需在本地复现发布构建，请先安装图片依赖并运行：
+
+```bash
+python3 tools/generate-image-derivatives.py
+node tools/generate-gallery-data.mjs
+npm run build:site
+```
+
+`_site` 和 `assets/generated` 都是可随时重建的临时目录，不应提交到仓库。
