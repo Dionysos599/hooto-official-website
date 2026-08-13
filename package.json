@@ -1,0 +1,13 @@
+{
+  "name": "hooto-official-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:site": "node tools/prepare-site.mjs",
+    "check:js": "find . -type f \\( -name '*.js' -o -name '*.mjs' \\) -not -path './.git/*' -not -path './_site/*' -not -path './assets/vendor/*' -print0 | xargs -0 -n1 node --check",
+    "check:site": "node tools/check-site.mjs",
+    "check:generated": "node tools/generate-gallery-data.mjs && git diff --exit-code -- pages/scripts/gallery-data.js",
+    "qa": "npm run check:js && npm run check:site && npm run check:generated",
+    "test": "npm run qa"
+  }
+}
