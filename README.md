@@ -14,6 +14,16 @@ bash tools/serve-static.sh 8080
 
 也可以直接用浏览器打开 `index.html`（部分相对路径在 `file://` 下一般也能用）。
 
+## 质量检查
+
+运行不依赖第三方 npm 软件包的静态质量门禁：
+
+```bash
+npm run qa
+```
+
+检查包含 JavaScript 语法、本地资源和锚点、重复 ID、图片 `alt`，以及画廊数据是否为最新版本。真实浏览器回归范围与发布验收清单见 [`docs/QA.md`](docs/QA.md)。
+
 ## 目录结构
 
 ```

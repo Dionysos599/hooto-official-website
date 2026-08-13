@@ -1,3 +1,6 @@
 # Local reusable agent skill drafted from this project
 skills/
 .DS_Store
+
+# Rebuilt locally and in CI from the original, untouched image library.
+assets/generated/

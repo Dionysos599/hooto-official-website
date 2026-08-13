@@ -20,8 +20,8 @@
     const grid = document.querySelector(`[data-gallery-grid="${galleryKey}"]`);
     if (!grid) return;
 
-    const imagePaths = Array.isArray(galleryData[galleryKey]) ? galleryData[galleryKey] : [];
-    if (imagePaths.length === 0) {
+    const imageItems = Array.isArray(galleryData[galleryKey]) ? galleryData[galleryKey] : [];
+    if (imageItems.length === 0) {
       const empty = document.createElement("p");
       empty.className = "gallery-empty";
       empty.textContent = "画廊图片正在整理中。";
@@ -33,14 +33,28 @@
     columns.forEach((column) => column.classList.add("gallery-column"));
     grid.style.setProperty("--gallery-column-count", String(columnCount));
 
-    imagePaths.forEach((path, index) => {
+    imageItems.forEach((item, index) => {
+      const source = typeof item === "string" ? { src: item, variants: [] } : item;
+      const variants = Array.isArray(source.variants) ? source.variants : [];
       const figure = document.createElement("figure");
       const image = document.createElement("img");
 
       figure.className = "gallery-item";
-      image.src = `../${path}`;
-      image.alt = imageAlt(path);
+      const largestVariant = variants.at(-1);
+      image.src = `../${largestVariant?.src || source.src}`;
+      if (variants.length) {
+        image.srcset = variants.map((variant) => `../${variant.src} ${variant.width}w`).join(", ");
+        image.sizes = desktopGalleryQuery.matches ? "25vw" : "50vw";
+      }
+      image.alt = imageAlt(source.src);
+      const displayWidth = largestVariant?.width || source.width;
+      const displayHeight = largestVariant?.height || source.height;
+      if (displayWidth && displayHeight) {
+        image.width = displayWidth;
+        image.height = displayHeight;
+      }
       image.loading = index < 4 ? "eager" : "lazy";
+      if (index < 4) image.fetchPriority = "high";
       image.decoding = "async";
       figure.append(image);
       columns[index % columns.length].append(figure);

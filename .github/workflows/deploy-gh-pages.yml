@@ -13,14 +13,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run static quality checks
+        run: npm run qa
+
+  deploy:
+    needs: qa
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install image tooling
+        run: python3 -m pip install -r tools/image-requirements.txt
+
+      - name: Generate responsive images
+        run: python3 tools/generate-image-derivatives.py
+
       - name: Generate gallery image list
         run: node tools/generate-gallery-data.mjs
+
+      - name: Generate SEO discovery files
+        run: node tools/generate-seo-files.mjs
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
