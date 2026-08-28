@@ -38,17 +38,14 @@
 
     <div class="site-nav-shell">
       <nav class="site-nav" aria-label="主导航">
-        <a href="${mainLinks.about}" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
         <a href="${mainLinks.projects}" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">项目</span><span class="lang-en">Projects</span></a>
         <a href="${mainLinks.mission}" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">社会使命</span><span class="lang-en">Social Mission</span></a>
         <a href="${mainLinks.gallery}" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">线上画廊</span><span class="lang-en">Online Gallery</span></a>
+        <a href="${mainLinks.about}" aria-controls="detailed-nav" aria-expanded="false"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
       </nav>
 
       <div class="detailed-header" id="detailed-nav" aria-label="详细导航">
         <div class="detailed-header-grid">
-          <div class="detailed-header-column">
-            <a href="${homeLink("#about")}"><span class="lang-zh">联系方式</span><span class="lang-en">Contact</span></a>
-          </div>
           <div class="detailed-header-column">
             <a href="${siteLink("pages/art-education.html")}"><span class="lang-zh">美育课程</span><span class="lang-en">Art Education</span></a>
             <a href="${siteLink("pages/cultural-ip.html")}"><span class="lang-zh">文创IP</span><span class="lang-en">Cultural IP</span></a>
@@ -60,6 +57,9 @@
           <div class="detailed-header-column">
             <a href="${siteLink("pages/gallery.html#cultural-ip")}"><span class="lang-zh">文创IP</span><span class="lang-en">Cultural IP</span></a>
             <a href="${siteLink("pages/gallery.html#student-showcase")}"><span class="lang-zh">学生成果展</span><span class="lang-en">Student Showcase</span></a>
+          </div>
+          <div class="detailed-header-column">
+            <a href="${homeLink("#about")}"><span class="lang-zh">联系方式</span><span class="lang-en">Contact</span></a>
           </div>
         </div>
       </div>
