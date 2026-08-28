@@ -165,7 +165,9 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   padding: clamp(18px, 2.2vw, 32px);
+  border-radius: clamp(16px, 2vw, 28px);
   color: var(--white);
   background-color: #6e88bd;
   background-image: linear-gradient(rgba(35, 45, 68, 0.38), rgba(35, 45, 68, 0.58)), url("../../assets/images/art-education/course/workshop-course-11.jpg");
@@ -232,6 +234,10 @@ img {
   font-size: clamp(18px, 2.1vw, 30px);
   line-height: 1.48;
   letter-spacing: -0.035em;
+}
+
+.art-education-page .art-course-statement-card--workshop .art-course-statement-copy .lang-zh {
+  font-size: clamp(22px, 2.5vw, 34px);
 }
 
 .student-showcase-link {
@@ -324,7 +330,7 @@ img {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: auto auto;
   align-content: start;
-  padding: clamp(24px, 2.5vw, 38px) var(--page-padding);
+  padding: clamp(34px, 3.2vw, 48px) calc(var(--page-padding) + clamp(8px, 1vw, 14px));
   border-top: 1px solid var(--line);
 }
 
@@ -334,11 +340,31 @@ img {
   grid-row: 1;
   align-self: start;
   max-width: 680px;
-  font-size: 20px;
+  padding-top: 16px;
+  padding-left: 16px;
+  font-size: clamp(25px, 2.35vw, 34px);
   font-weight: 400;
   line-height: 1.58;
   letter-spacing: -0.015em;
   text-align: left;
+}
+
+.community-practice-page .technology-story-lead-card {
+  z-index: 1;
+  grid-column: 1 / span 8;
+  grid-row: 1;
+  align-self: start;
+  max-width: 680px;
+}
+
+.community-practice-page .technology-story-lead-card .technology-story-lead {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.community-practice-page .technology-story-lead-card .technology-contact-link {
+  margin-top: clamp(24px, 2.6vw, 38px);
+  margin-left: 16px;
 }
 
 .technology-story-lead em {
@@ -731,6 +757,16 @@ img {
   object-fit: contain;
 }
 
+.ip-overview-page #student-showcase .ip-character-slide {
+  width: clamp(360px, 43vw, 650px);
+  aspect-ratio: 1.85 / 1;
+  background: rgb(253, 253, 253);
+}
+
+.ip-overview-page #student-showcase .ip-character-slide img {
+  object-fit: contain;
+}
+
 .ip-character-slide[data-position="0"] {
   z-index: 5;
   opacity: 1;
@@ -897,8 +933,12 @@ img {
 
 .ip-overview-page .art-course-statement-card {
   min-height: clamp(125px, 12.5vw, 160px);
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+}
+
+.ip-overview-page .art-course-statement-card:first-child {
+  padding-left: clamp(16px, 1.7vw, 24px);
 }
 
 .ip-overview-page .art-course-statement-copy {
@@ -906,7 +946,17 @@ img {
   margin-block: 0;
   font-size: clamp(16px, 1.8vw, 26px);
   font-weight: 400;
-  text-align: center;
+  text-align: left;
+}
+
+.ip-overview-page .art-course-statement-copy--lead {
+  font-size: clamp(20px, 2.15vw, 32px);
+  line-height: 1.4;
+}
+
+.ip-statement-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .ip-overview-page .ip-character-section {
@@ -1019,6 +1069,7 @@ img {
     width: clamp(190px, min(22vw, 36svh), 320px);
   }
 
+  .ip-overview-page #student-showcase .ip-character-slide,
   .ip-overview-page .ip-product-section .ip-character-slide {
     width: clamp(350px, min(43vw, 70svh), 620px);
   }
@@ -1498,7 +1549,11 @@ img {
 
   .technology-story-lead {
     grid-column: 1 / span 7;
-    font-size: 18px;
+    font-size: clamp(22px, 3.2vw, 26px);
+  }
+
+  .community-practice-page .technology-story-lead-card {
+    grid-column: 1 / span 7;
   }
 
   .technology-story-detail {
@@ -1680,13 +1735,13 @@ img {
 
   .technology-story {
     display: block;
-    padding-top: 28px;
+    padding-top: 36px;
     padding-bottom: 32px;
   }
 
   .technology-story-lead {
     max-width: 100%;
-    font-size: 16px;
+    font-size: clamp(20px, 5.4vw, 23px);
     line-height: 1.58;
     letter-spacing: -0.015em;
   }
@@ -1740,6 +1795,10 @@ img {
     font-size: 14px;
   }
 
+  .ip-overview-page .art-course-statement-copy--lead {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
   .ip-overview-page .ip-character-section {
     padding-top: 24px;
     padding-bottom: 18px;
@@ -1758,27 +1817,33 @@ img {
     width: min(44vw, 176px);
   }
 
+  .ip-overview-page #student-showcase .ip-character-slide,
   .ip-overview-page .ip-product-section .ip-character-slide {
     width: min(72vw, 282px);
     border-radius: 12px;
   }
 
+  .ip-overview-page #student-showcase .ip-character-stage,
   .ip-overview-page .ip-product-section .ip-character-stage {
     height: 260px;
   }
 
+  .ip-overview-page #student-showcase .ip-character-slide[data-position="-1"],
   .ip-overview-page .ip-product-section .ip-character-slide[data-position="-1"] {
     left: 31%;
   }
 
+  .ip-overview-page #student-showcase .ip-character-slide[data-position="1"],
   .ip-overview-page .ip-product-section .ip-character-slide[data-position="1"] {
     left: 69%;
   }
 
+  .ip-overview-page #student-showcase .ip-character-slide[data-position="-2"],
   .ip-overview-page .ip-product-section .ip-character-slide[data-position="-2"] {
     left: 12%;
   }
 
+  .ip-overview-page #student-showcase .ip-character-slide[data-position="2"],
   .ip-overview-page .ip-product-section .ip-character-slide[data-position="2"] {
     left: 88%;
   }

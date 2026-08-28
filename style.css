@@ -1086,10 +1086,6 @@ a.about-contact-row:hover,
   text-transform: uppercase;
 }
 
-.brand-mark--footer {
-  font-size: clamp(55px, 7.5vw, 120px);
-}
-
 .site-footer a:last-child {
   justify-self: end;
   font-size: 16px;
@@ -1732,7 +1728,7 @@ a.about-contact-row:hover,
     gap: 30px;
   }
 
-  .brand-mark--footer {
+  .footer-brand {
     grid-column: 1 / -1;
   }
 
