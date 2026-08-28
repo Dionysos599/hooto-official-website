@@ -12,7 +12,7 @@ const naturalSort = new Intl.Collator("zh-CN", { numeric: true, sensitivity: "ba
 
 const gallerySources = {
   culturalIp: "assets/images/cultural-ip/gallery",
-  studentShowcase: "assets/images/art-education/course"
+  studentShowcase: "assets/images/art-education/stu_outcome"
 };
 
 async function loadImageManifest() {

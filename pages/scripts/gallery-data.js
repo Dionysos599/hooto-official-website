@@ -90,6 +90,10 @@ window.HOOTO_GALLERY_IMAGES = {
       "variants": []
     },
     {
+      "src": "assets/images/cultural-ip/gallery/弟弟形象.jpg",
+      "variants": []
+    },
+    {
       "src": "assets/images/cultural-ip/gallery/好好吃饭.png",
       "variants": []
     },
@@ -98,7 +102,15 @@ window.HOOTO_GALLERY_IMAGES = {
       "variants": []
     },
     {
+      "src": "assets/images/cultural-ip/gallery/可可形象.jpg",
+      "variants": []
+    },
+    {
       "src": "assets/images/cultural-ip/gallery/立秋.png",
+      "variants": []
+    },
+    {
+      "src": "assets/images/cultural-ip/gallery/瑞瑞和粥粥形象.jpg",
       "variants": []
     },
     {
@@ -107,6 +119,10 @@ window.HOOTO_GALLERY_IMAGES = {
     },
     {
       "src": "assets/images/cultural-ip/gallery/手捧苔藓.png",
+      "variants": []
+    },
+    {
+      "src": "assets/images/cultural-ip/gallery/粥粥瑞瑞形象.png",
       "variants": []
     },
     {
@@ -132,47 +148,143 @@ window.HOOTO_GALLERY_IMAGES = {
   ],
   "studentShowcase": [
     {
-      "src": "assets/images/art-education/course/workshop-course-01.jpg",
+      "src": "assets/images/art-education/stu_outcome/11.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-02.jpg",
+      "src": "assets/images/art-education/stu_outcome/12.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-03.jpg",
+      "src": "assets/images/art-education/stu_outcome/13.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-04.jpg",
+      "src": "assets/images/art-education/stu_outcome/21.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-05.jpg",
+      "src": "assets/images/art-education/stu_outcome/22.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-06.jpg",
+      "src": "assets/images/art-education/stu_outcome/23.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-07.jpg",
+      "src": "assets/images/art-education/stu_outcome/31.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-08.jpg",
+      "src": "assets/images/art-education/stu_outcome/32.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-09.jpg",
+      "src": "assets/images/art-education/stu_outcome/33.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-10.jpg",
+      "src": "assets/images/art-education/stu_outcome/41.jpg",
       "variants": []
     },
     {
-      "src": "assets/images/art-education/course/workshop-course-11.jpg",
+      "src": "assets/images/art-education/stu_outcome/42.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/43.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/2025-07-20 134124.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/2025-07-20 134134.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153055.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153056.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153057.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153058.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153059.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153100.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_20260716153101(1).jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_202607161530571.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_202607161530581.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_202607161530591.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/微信图片_202607161531001.jpg",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC04842.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC04849.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC04853.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC04859.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC04874.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC05027.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC05032.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC05051.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/DSC05054.JPG",
+      "variants": []
+    },
+    {
+      "src": "assets/images/art-education/stu_outcome/WechatIMG114.jpg",
       "variants": []
     }
   ]

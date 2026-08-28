@@ -20,7 +20,7 @@ MANIFEST = OUTPUT_ROOT / "manifest.json"
 SOURCE_GROUPS = {
     "assets/images/project-covers": (640, 1280),
     "assets/images/cultural-ip/gallery": (480, 960),
-    "assets/images/art-education/course": (480, 960),
+    "assets/images/art-education/stu_outcome": (480, 960),
 }
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
