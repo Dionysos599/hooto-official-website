@@ -1,0 +1,29 @@
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.footer-brand-logo {
+  display: block;
+  width: auto;
+}
+
+.footer-brand--home .footer-brand-logo {
+  height: clamp(25px, 2.46vw, 37px);
+}
+
+.footer-brand--sub .footer-brand-logo {
+  height: clamp(25px, 2.46vw, 37px);
+}
+
+.case-footer {
+  min-height: calc(clamp(25px, 2.46vw, 37px) + 61px);
+}
+
+@media (max-width: 600px) {
+  .case-footer {
+    min-height: calc(clamp(25px, 2.46vw, 37px) + 115px);
+  }
+}

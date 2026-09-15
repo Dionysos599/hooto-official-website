@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/archive/
+
+Sitemap: https://hooto-official.github.io/hooto-official-website/sitemap.xml
