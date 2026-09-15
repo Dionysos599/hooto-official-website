@@ -56,7 +56,9 @@ tools/                # 画廊清单生成与本地预览脚本
 
 ## 部署
 
-推送到 `master` 后，GitHub Actions（`.github/workflows/deploy-gh-pages.yml`）会生成响应式 WebP 图片和画廊清单，验证所有衍生图片引用，再把独立的 `_site` 构建目录发布到 `gh-pages` 分支。
+推送到 `master` 后，GitHub Actions（`.github/workflows/deploy-gh-pages.yml`）会生成响应式 WebP 图片和画廊清单，验证所有衍生图片引用，再把独立的 `_site` 构建目录同步到阿里云 OSS、刷新 `www.hooto.com.cn` 的 CDN 缓存，并继续发布到 `gh-pages` 分支作为备用。
+
+阿里云部署需要在仓库的 Actions secrets 中配置 `ALIBABA_CLOUD_ACCESS_KEY_ID` 和 `ALIBABA_CLOUD_ACCESS_KEY_SECRET`。对应 RAM 身份应只拥有向 `hooto` Bucket 上传/列举文件及刷新 `www.hooto.com.cn` CDN 缓存所需的最小权限。
 
 如需在本地复现发布构建，请先安装图片依赖并运行：
 
